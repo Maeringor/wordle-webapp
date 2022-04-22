@@ -7,7 +7,6 @@ Initialisierung des Projektes. Im folgenden Abschnitt ist der Convention-Guide f
 ## Conventions
 
 ### Übersicht (Inhalt):
-
-1. Git-Hub
-2. HTML & CSS
-3. PHP
+* 🎫 Git-Hub
+* 🍮 HTML, CSS, JS
+* 💻 PHP
