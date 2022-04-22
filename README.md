@@ -2,9 +2,11 @@
 
 Initialisierung des Projektes. Im folgenden Abschnitt ist der Convention-Guide für dieses Projekt angegeben.
 
+<br>
+
 ## Conventions
 
-### Übersicht (Inhalt)
+### Übersicht (Inhalt):
 
 1. Git-Hub
 2. HTML & CSS
