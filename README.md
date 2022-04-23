@@ -140,7 +140,7 @@ Die Struktur ist:
 
 Kürzere `scripts` dürfen einfach in der HTMl-File eingebaut werden. Ein Beispiel wären lokale Animationen, die nur in dieser File benötigt werden. Mehrfach verwendbare oder größere `scripts` bitte auslagern.
 
-### <span style="color = red">_Achtung:_
+### <span style="color = red">_Achtung:_</span>
 Die Angabe von Links muss **IMMER** relativ erfolgen! Sonst funktioniert die Logik der Webseite von Nutzer zu Server nicht mehr.
 >**&lt;a href="/wordle-game.html"&gt;**
 
