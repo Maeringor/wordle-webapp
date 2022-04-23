@@ -49,7 +49,7 @@ Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie 
 
 Im `header` wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
 Im `main` wird der Inhalt der Seite in `section-Tags` beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
-Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geoordnet zusammen.<br><br>
+Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geordnet zusammen.<br><br>
 
 #### Section-Struktur
 Tags werden immer klein geschrieben. Die normale Logik ist:
@@ -154,3 +154,24 @@ Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Ve
 >**root -> css -> design.css**
 
 Mit der Live Server extension wird das aktuelle Verzeichnis wie der root Folder eines Webservers interpretiert. Diese Extension für Tests zu benutzen ist somit sinnvoll 👌.
+
+### 💻 PHP
+
+#### Variblen
+Variablen sollten in camelCase (Javalogik) geschrieben werden. Meist ist aber ein Wort ausreichend.
+>**$sqlStatement** = "SELECT * FROM USER"; könnte **$query** = "SELECT * FROM USER"; sein
+
+Wichtig ist passende Bezeichnungen zu wählen.
+
+#### Funktionen und Klassen
+Funktionen werden klein geschrieben und Worte mit `_` getrennt.
+>**function** set_hint_for_word ($word) { }
+
+Klassen werden im PascalCase geschrieben.
+>**class** WordleLogic {}
+
+#### Kommentare
+Es ist wichtig ausreichend zu Kommentieren, aber eigentlich sollten gute Klassen- und Variablennamen Kommentare fast unnötig machen. Wenn Kommentare gesetzt werden, dann sollten diese einen besonderen Fall beschreiben oder wichtige Hinweise geben.
+>**// Kommentar in PHP** nicht **//Kommentar in PHP**
+
+## Das waren alle Conventions 👍 Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
