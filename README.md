@@ -121,7 +121,7 @@ Es gelten die typischen Java Regeln. Alle Variablen und Funktionen beginnen mit 
 
 >**word** = "five"; <br>
 **playerCount** = 1; <br>
-**function** getWordHint(currentWord){<br>
+**function** getWordHint (currentWord){<br>
 &nbsp; &nbsp; &nbsp; ...<br>
 }
 
@@ -130,7 +130,7 @@ Es gelten die typischen Java Regeln. Alle Variablen und Funktionen beginnen mit 
 Die Dateien werden wie in CSS benannt. Kleinschreibung ohne Sonderzeichen. An das Ende des Namens wird immer *script* angehängt.
 Die Struktur ist:
 
->scripts
+>scripts <br>
 &nbsp;| <br>
 &nbsp;__ mainscript.js <br>
 &nbsp;| <br>
@@ -140,7 +140,7 @@ Die Struktur ist:
 
 Kürzere `scripts` dürfen einfach in der HTMl-File eingebaut werden. Ein Beispiel wären lokale Animationen, die nur in dieser File benötigt werden. Mehrfach verwendbare oder größere `scripts` bitte auslagern.
 
-#### **Achtung**:
+### __Achtung:__
 Die Angabe von Links muss **IMMER** relativ erfolgen! Sonst funktioniert die Logik der Webseite von Nutzer zu Server nicht mehr.
 >**&lt;a href="/wordle-game.html"&gt;**
 
@@ -152,3 +152,5 @@ Gleiches gilt für z.B. den Import von CSS Dateien in die HTML oder PHP Datei.
 
 Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Verzeichnes ausgehend die Ordnerlogik abarbeitet. In diesem Fall also von (root = in VS Code angebener Worplace, also der Ordner in dem die README.md, index.html, etc liegen):
 >**root -> css -> design.css**
+
+Mit der Live Server extension wird das aktuelle Verzeichnis wie der root Folder eines Webservers interpretiert. Diese Extension für Tests zu benutzen ist somit sinnvoll 👌.
