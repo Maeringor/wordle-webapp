@@ -19,7 +19,7 @@ Branches werden von jedem Dev zu einem neuen Feature (Issue) erstellt. Der `mast
 >**IS:1_BUCHSTABE_VORNAME branch name ◽ BSP.: IS:M login system**
 
 Nachdem ein Feature fertig entwickelt und getestet ist, wird der Branch durch einen Pull-Request in den master gemerget.
-Wichitg, ein solcher Feature-Branch darf auch nicht von anderen Devs bearbeitet werden. D.h. nur der Inhaber darf auf seinen Featrue-Branch comitten. In Absprache natürlich erlaubt.
+Wichitg, ein solcher Feature-Branch darf auch nicht von anderen Devs bearbeitet werden. D.h. nur der Inhaber darf auf seinen Featrue-Branch comitten und pushen. In Absprache natürlich erlaubt.
 
 #### Commits
 Commits sollten regelmäßig auf den jeweiligen Feature-Branch stattfinden. Eine Commit Message wird wie folgt aufgebaut: <br>
@@ -34,22 +34,22 @@ Ordner für HTML, CSS, JS werden klein geschrieben und dürfen keine Lehrzeichen
 >**full_file_name ◽ Bsp.: styles oder styles_css und scripts, files/images**
 
 Namen für Unterordner sind je nach Logik zu wählen. Beispielsweise könnte eine FAQ Seite im Ordernamen: <br>
->**/faq/faq.html**
+>**/support/faq.html**
 
 zu finden sein.
-Die genauere Ordnerstruktur findet sich in dem Abschnitt 🍮 HTML, CSS, JS wieder.
+Die genaue Ordnerstruktur findet sich in dem Abschnitt 🍮 HTML, CSS, JS wieder.
 
 ### 🍮 HTML, CSS, JS
 
 #### HTML:
 
 #### Tags
-Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie nötig, aber so wenig Tags wie möglich" verwendet werden. Die Hautsektionen im `body-Tag` sind: <br>
+Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie nötig, aber so wenig Tags wie möglich" verwendet werden. Die drei Hauptsektionen im `body-Tag` sind: <br>
 >**header, main, footer**
 
 Im `header` wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
-Im `main` wird der Inhalt der Seite in `section-Tags` beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
-Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geordnet zusammen.<br><br>
+Im `main` wird der Inhalt der Seite in `section-Tags` beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt durch Scrollen ändert. Bekannt ist z.B. die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
+Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geordnet zusammen.<br>
 
 #### Section-Struktur
 Tags werden immer klein geschrieben. Die normale Logik ist:
@@ -68,10 +68,11 @@ Namen werden klein geschrieben und sollten den Zweck der Seite beschreiben. Sond
 >**index.html ◽ contact-infos.html**
 
 #### Ordnerstruktur
-Die Ordnerstruktur ist wie folgt. Die Hauptseite `index.html` ist immer auf der Ebene mit der README.md File. Weitere Seiten werden in Ordnern eine oder mehrere Ebenen darunter zusammengefasst. Beispiel einer Struktur:
+Die Ordnerstruktur ist wie folgt. Die Hauptseite `index.html` ist immer auf der Ebene mit der README.md File. Weitere Seiten werden in Ordnern keine, eine oder mehrere Ebenen darunter zusammengefasst. Beispiel einer Struktur:
 
 >README.md <br>
 index.html <br>
+wordle-game.html <br>
 &nbsp;| <br>
 &nbsp;__ support <br>
 &nbsp; &nbsp; &nbsp;| <br>
@@ -84,7 +85,7 @@ Sollte es keine sinnvollen Gruppen geben, werden einfach die Namen der Seiten ge
 #### CSS:
 
 #### Klassen
-CSS ist eng mit HTML verbunden, denn ohne HTML würde CSS wenig Sinn ergeben. Wichitg sind Klassen in CSS, diese lassen sich direkt in `HTML-Tags` einfügen. Wichtig ist, dass Klassen sinnvoll genutzt werden. Beispeilsweise kann man `styles` vielleicht mehrfach verwenden, weil eine Struktur aus HTML (mit geschachtelten `divs`) auf zwei Seiten oder sogar in zwei Sektionen auf einer Seite 1:1 erneut auftritt. Ziel ist so wenig redundanten Code wie möglich zu schreiben. Das ist auch der Grund dafür, dass es meist eine oder mehrer zentrale Dateien gibt, in der global geltende `styles` festgelegt werden.<br><br>
+CSS ist eng mit HTML verbunden, denn ohne HTML würde CSS wenig Sinn ergeben. Wichitg sind Klassen in CSS, diese lassen sich direkt in `HTML-Tags` einfügen. Wichtig ist, dass Klassen sinnvoll genutzt werden. Beispeilsweise kann man Klassen vielleicht mehrfach verwenden, weil eine Struktur aus HTML (mit geschachtelten `divs`) auf zwei Seiten oder sogar in zwei Sektionen auf einer Seite 1:1 erneut auftritt. Ziel ist so wenig redundanten Code wie möglich zu schreiben. Das ist auch der Grund dafür, dass es meist eine oder mehrer zentrale Dateien gibt, in der global geltende `styles` festgelegt werden.<br><br>
 In diesem Projekt werden wir globale `styles` in 
 >**design.css**
 
@@ -147,10 +148,10 @@ Die Angabe von Links muss **IMMER** relativ erfolgen! Sonst funktioniert die Log
 Gleiches gilt für z.B. den Import von CSS Dateien in die HTML oder PHP Datei.
 >**&lt;link rel="stylesheet" href="/css/design.css"&gt;**
 
-Außerdem wird der letzte URL Tag, also der Filename mit der Endung .html, gekürzt.
+Außerdem wird der letzte URL Tag, also der Filename mit der Endung .html oder .php, gekürzt.
 >**&lt;a href="/wordle-game"&gt;**
 
-Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Verzeichnes ausgehend die Ordnerlogik abarbeitet. In diesem Fall also von (root = in VS Code angebener Worplace, also der Ordner in dem die README.md, index.html, etc liegen):
+Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Verzeichnes ausgehend die Ordnerlogik abarbeitet. In diesem Fall von (root = in VS Code angebener Worplace, also der Ordner in dem die README.md, index.html, etc liegen):
 >**root -> css -> design.css**
 
 Mit der Live Server extension wird das aktuelle Verzeichnis wie der root Folder eines Webservers interpretiert. Diese Extension für Tests zu benutzen ist somit sinnvoll 👌.
@@ -171,12 +172,23 @@ Klassen werden im PascalCase geschrieben.
 >**class** WordleLogic {}
 
 #### Kommentare
-Es ist wichtig ausreichend zu Kommentieren, aber eigentlich sollten gute Klassen- und Variablennamen Kommentare fast unnötig machen. Wenn Kommentare gesetzt werden, dann sollten diese einen besonderen Fall beschreiben oder wichtige Hinweise geben.
+Es ist wichtig ausreichend zu kommentieren, aber eigentlich sollten gute Klassen- und Variablennamen Kommentare fast unnötig machen. Wenn Kommentare gesetzt werden, dann sollten diese einen besonderen Fall beschreiben oder wichtige Hinweise geben.
 >**// Kommentar in PHP** nicht **//Kommentar in PHP**
+
+#### Ordnerstruktur
+Php Files werden wie HTML Files behandelt und dementsprechend auch gleich benannt.
+Die Struktur ist:
+
+>php <br>
+&nbsp;| <br>
+&nbsp;__ some-php-file.php <br>
+&nbsp;| <br>
+&nbsp;__ game_logic <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ game-logic.php <br>
 
 <br>
 
 ### Das waren alle Conventions 👍 
-<br>
 
 ### Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
