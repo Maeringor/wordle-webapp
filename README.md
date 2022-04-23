@@ -176,4 +176,7 @@ Es ist wichtig ausreichend zu Kommentieren, aber eigentlich sollten gute Klassen
 
 <br>
 
-### Das waren alle Conventions 👍 Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
+### Das waren alle Conventions 👍 
+<br>
+
+### Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
