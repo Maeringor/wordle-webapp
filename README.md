@@ -174,4 +174,6 @@ Klassen werden im PascalCase geschrieben.
 Es ist wichtig ausreichend zu Kommentieren, aber eigentlich sollten gute Klassen- und Variablennamen Kommentare fast unnötig machen. Wenn Kommentare gesetzt werden, dann sollten diese einen besonderen Fall beschreiben oder wichtige Hinweise geben.
 >**// Kommentar in PHP** nicht **//Kommentar in PHP**
 
-## Das waren alle Conventions 👍 Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
+<br>
+
+### Das waren alle Conventions 👍 Dieser Guide wird hoffentlich viele Stunden Arbeit sparen. 🙏😂
