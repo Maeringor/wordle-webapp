@@ -35,6 +35,7 @@ Ordner für HTML, CSS, JS werden klein geschrieben und sollen keine Lehrzeichen 
 
 Namen für Unterordner sind je nach Logik zu wählen. Beispielsweise sollte eine FAQ Seite im Ordernamen: <br>
 >**/faq/FAQ.html**
+
 zu finden sein.
 Die genauere Ordnerstruktur findet sich in dem Abschnitt 🍮 HTML, CSS, JS wieder.
 
@@ -43,14 +44,16 @@ Die genauere Ordnerstruktur findet sich in dem Abschnitt 🍮 HTML, CSS, JS wied
 #### HTML:
 Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie nötig, aber so wenig Tags wie möglich" verwendet werden. Die Hautsektionen im *body-Tag* sind: <br>
 >**header, main, footer**
+
 Im *header* wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
 Im *main* wird der Inhalt der Seite in *section-Tags* beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
 Im *footer* werden letzte Links und Anmerkungen gemacht. Meist fast man auch die Links des *headers* darin nocheinmal geoordnet zusammen.<br>
 Tags werden immer klein geschrieben. Die normale Logik ist:
->main
+
+>main <br>
 > |
-> _ section
+> _ section <br>
 >  |
->  _ div 1
+>  _ div 1 <br>
 >  |
->  _ div 2
+>  _ div 2 <br>
