@@ -42,18 +42,18 @@ Die genauere Ordnerstruktur findet sich in dem Abschnitt 🍮 HTML, CSS, JS wied
 ### 🍮 HTML, CSS, JS
 
 #### HTML:
-Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie nötig, aber so wenig Tags wie möglich" verwendet werden. Die Hautsektionen im *body-Tag* sind: <br>
+Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie nötig, aber so wenig Tags wie möglich" verwendet werden. Die Hautsektionen im `body-Tag` sind: <br>
 >**header, main, footer**
 
-Im *header* wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
-Im *main* wird der Inhalt der Seite in *section-Tags* beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
-Im *footer* werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des *headers* darin nocheinmal geoordnet zusammen.<br>
+Im `header` wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
+Im `main` wird der Inhalt der Seite in `section-Tags` beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
+Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geoordnet zusammen.<br>
 Tags werden immer klein geschrieben. Die normale Logik ist:
 
 >main <br>
-> &nbsp;|
-> &nbsp;_ section <br>
->  &nbsp; &nbsp;|
->  &nbsp; &nbsp;_ div 1 <br>
->  &nbsp; &nbsp;|
->  &nbsp; &nbsp;_ div 2 <br>
+ | <br>
+&nbsp;_ section <br>
+&nbsp; &nbsp;|<br>
+&nbsp; &nbsp;_ div 1 <br>
+&nbsp; &nbsp;|<br>
+&nbsp; &nbsp;_ div 2 <br>
