@@ -94,7 +94,10 @@ Seitenspezifische Designs werden in einer CSS Datei mit dem Namen der Seite gesc
 >**FAQ Designs in faq.css ◽ globalstyles.css**
 
 Klassennamen sind so zu wählen, dass sie die Funktion der `section`, des `divs`, `links`, etc. beschreiben. Beispiel cta (call to action) Button in `index.html`:
->**&lt;a href="/wordle/wordle-game.html class="cta-button blue-button"&gt;**
+>**&lt;a href="/wordle/wordle-game.html" class="cta-button blue-button"&gt;**
+
+Die Klassennamen müssen immer klein geschrieben und mit "-" getrennt werden (Beispiel aus CSS-File):
+>**.white-to-blue-background{ }**
 
 #### Ordnerstruktur
 Die Struktur ist:
@@ -106,16 +109,46 @@ Die Struktur ist:
 &nbsp;__ landingpage <br>
 &nbsp; &nbsp; &nbsp;| <br>
 &nbsp; &nbsp; &nbsp;__ index.css <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ indexpagenav.css <br>
 &nbsp;| <br>
 &nbsp;__ special_styles <br>
 
 #### JS:
 
 #### Variablen und Funktionen
-Es gelten die typischen Java Regeln. Alle Variablen und Funktionen beginnen mit einem Kleinbuchstaben. Alles weiter wird im camleCase fortgesetzt. Alle Namen sollten `englische` Wörter sein.
+Es gelten die typischen Java Regeln. Alle Variablen und Funktionen beginnen mit einem Kleinbuchstaben. Alles weiter wird im camleCase fortgesetzt. Alle Namen sollten **englische** Wörter sein.
 
->word = "five"; <br>
-playerCount = 1; <br>
-function getWordHint(currentWord){<br>
-    ...<br>
-}<br>
+>**word** = "five"; <br>
+**playerCount** = 1; <br>
+**function** getWordHint(currentWord){<br>
+&nbsp; &nbsp; &nbsp; ...<br>
+}
+
+#### Ordnerstruktur
+
+Die Dateien werden wie in CSS benannt. Kleinschreibung ohne Sonderzeichen. An das Ende des Namens wird immer *script* angehängt.
+Die Struktur ist:
+
+>scripts
+&nbsp;| <br>
+&nbsp;__ mainscript.js <br>
+&nbsp;| <br>
+&nbsp;__ game_logic <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ animationscript.js <br>
+
+Kürzere `scripts` dürfen einfach in der HTMl-File eingebaut werden. Ein Beispiel wären lokale Animationen, die nur in dieser File benötigt werden. Mehrfach verwendbare oder größere `scripts` bitte auslagern.
+
+#### **Achtung**:
+Die Angabe von Links muss **IMMER** relativ erfolgen! Sonst funktioniert die Logik der Webseite von Nutzer zu Server nicht mehr.
+>**&lt;a href="/wordle-game.html"&gt;**
+
+Außerdem wird der letzte URL Tag, also der Filename mit der Endung .html, gekürzt.
+>**&lt;a href="/wordle-game"&gt;**
+
+Gleiches gilt für z.B. den Import von CSS Dateien in die HTML oder PHP Datei.
+>**&lt;link rel="stylesheet" href="/css/design.css"&gt;**
+
+Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Verzeichnes ausgehend die Ordnerlogik abarbeitet. In diesem Fall also von (root = in VS Code angebener Worplace, also der Ordner in dem die README.md, index.html, etc liegen):
+>**root -> css -> design.css**
