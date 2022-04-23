@@ -51,9 +51,9 @@ Im *footer* werden letzte Links und Anmerkungen gemacht. Meist fasst man auch di
 Tags werden immer klein geschrieben. Die normale Logik ist:
 
 >main <br>
-> &nbsp|
-> &nbsp_ section <br>
->  &nbsp &nbsp|
->  &nbsp &nbsp_ div 1 <br>
->  &nbsp &nbsp|
->  &nbsp &nbsp_ div 2 <br>
+> &nbsp;|
+> &nbsp;_ section <br>
+>  &nbsp; &nbsp;|
+>  &nbsp; &nbsp;_ div 1 <br>
+>  &nbsp; &nbsp;|
+>  &nbsp; &nbsp;_ div 2 <br>
