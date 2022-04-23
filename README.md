@@ -65,7 +65,7 @@ Tags werden immer klein geschrieben. Die normale Logik ist:
 #### HTML-File Namen:
 Namen werden klein geschrieben und sollten den Zweck der Seite beschreiben. Sonderzeichen und Leerzeichen sind nicht erlaubt (Außname "-").
 
->**index.html oder contact-infos.html**
+>**index.html ◽ contact-infos.html**
 
 #### Ordnerstruktur:
 Die Ordnerstruktur ist wie folgt. Die Hauptseite `index.html` ist immer auf der Ebene mit der README.md File. Weitere Seiten werden in Ordnern eine oder mehrere Ebenen darunter zusammengefasst. Beispiel einer Struktur:
@@ -86,10 +86,22 @@ CSS ist eng mit HTML verbunden, denn ohne HTML würde CSS wenig Sinn ergeben. Wi
 In diesem Projekt werden wir globale `styles` in 
 >**design.css**
 
-ablegen.<br>
+ablegen. Bei neuen Einträgen immer die Funktion mit Kommentaren beschreiben und nicht einfach Einträge löschen.<br><br>
 Seitenspezifische Designs werden in einer CSS Datei mit dem Namen der Seite geschrieben. Der Name wird vollstädnig klein geschrieben und bei mehreren Wörtern einfach aneinander gehängt. Sonderzeichen sind nicht erlaubt.
 
 >**FAQ Designs in faq.css ◽ globalstyles.css**
 
-Klassennamen sind so zu wählen, dass sie die Funktion der `section`, des `divs`, `links`, etc. beschreiben. Beispiel Cta (Call to action) Button in `index.html`:
+Die Struktur ist:
+
+>css
+&nbsp;| <br>
+&nbsp;__ design.css <br>
+&nbsp;| <br>
+&nbsp;__ landingpage <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ index.css <br>
+&nbsp;| <br>
+&nbsp;__ special_styles <br>
+
+Klassennamen sind so zu wählen, dass sie die Funktion der `section`, des `divs`, `links`, etc. beschreiben. Beispiel cta (call to action) Button in `index.html`:
 > **&lt;a href="/wordle/wordle-game.html class="cta-button blue-button"&gt;**
