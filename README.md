@@ -47,13 +47,13 @@ Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie 
 
 Im *header* wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
 Im *main* wird der Inhalt der Seite in *section-Tags* beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
-Im *footer* werden letzte Links und Anmerkungen gemacht. Meist fast man auch die Links des *headers* darin nocheinmal geoordnet zusammen.<br>
+Im *footer* werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des *headers* darin nocheinmal geoordnet zusammen.<br>
 Tags werden immer klein geschrieben. Die normale Logik ist:
 
 >main <br>
-> |
-> _ section <br>
->  |
->  _ div 1 <br>
->  |
->  _ div 2 <br>
+> &nbsp|
+> &nbsp_ section <br>
+>  &nbsp &nbsp|
+>  &nbsp &nbsp_ div 1 <br>
+>  &nbsp &nbsp|
+>  &nbsp &nbsp_ div 2 <br>
