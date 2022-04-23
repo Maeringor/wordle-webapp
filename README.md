@@ -47,7 +47,7 @@ Für HTML gibt es nicht viele Conventions. Wichtig ist, dass "so viele Tags wie 
 
 Im `header` wird das Menü mit Links beschrieben (mit PHP kann das einmalig in einer seperaten Datei definiert werden).<br>
 Im `main` wird der Inhalt der Seite in `section-Tags` beschrieben. Sections sind das, was auf einer Webseite zu sehen ist, wenn sich der Inhalt ändert. Bekannt ist die Hero-Section. Diese ist das Erste, was ein User sieht, wenn er die Webseite aufruft.<br>
-Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geoordnet zusammen.<br>
+Im `footer` werden letzte Links und Anmerkungen gemacht. Meist fasst man auch die Links des `headers` darin nocheinmal geoordnet zusammen.<br><br>
 Tags werden immer klein geschrieben. Die normale Logik ist:
 
 >main <br>
@@ -57,3 +57,16 @@ Tags werden immer klein geschrieben. Die normale Logik ist:
 &nbsp; &nbsp; &nbsp;__ div 1 <br>
 &nbsp; &nbsp; &nbsp;|<br>
 &nbsp; &nbsp; &nbsp;__ div 2 <br>
+
+Die Ordnerstruktur ist wie folgt. Die Hauptseite `index.html` ist immer auf der Ebene mit der README.md File. Weitere Seiten werden in Ordnern eine oder mehrere Ebenen darunter zusammengefasst. Beispiel einer Struktur:
+
+>README.md <br>
+index.html
+&nbsp;| <br>
+&nbsp;__ support <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ Contact.html <br>
+&nbsp; &nbsp; &nbsp;| <br>
+&nbsp; &nbsp; &nbsp;__ FAQ.html <br>
+
+Sollte es keine sinnvollen Gruppen geben, werden einfach die Namen der Seiten genommen und, wie in **💾 Folder** beschrieben, benannt.
