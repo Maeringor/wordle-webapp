@@ -15,7 +15,7 @@ Initialisierung des Projektes. Im folgenden Abschnitt ist der Convention-Guide f
 ### 🎫 Git-Hub:
 
 #### Branches
-Branches werden von jedem Dev zu einem neuen Feature (Issue) erstellt. Der *master* Branch ist der Hauptbranch (aktuell produktiv). Jeder Dev erstellt zu einem neuen Feauture einen neuen Branch, nach Schema: <br>
+Branches werden von jedem Dev zu einem neuen Feature (Issue) erstellt. Der `master` Branch ist der Hauptbranch (aktuell produktiv). Jeder Dev erstellt zu einem neuen Feauture einen neuen Branch, nach Schema: <br>
 >**IS:1_BUCHSTABE_VORNAME branch name ◽ BSP.: IS:M login system**
 
 Nachdem ein Feature fertig entwickelt und getestet ist, wird der Branch durch einen Pull-Request in den master gemerget.
@@ -33,7 +33,7 @@ Es ist sinvoll in den Commit Messages die wichtigsten Änderungen zusammenzufass
 Ordner für HTML, CSS, JS werden klein geschrieben und dürfen keine Lehrzeichen sowie Sonderzeichen beinhalten (Außnahme "_").<br>
 >**full_file_name ◽ Bsp.: styles oder styles_css und scripts, files/images**
 
-Namen für Unterordner sind je nach Logik zu wählen. Beispielsweise sollte eine FAQ Seite im Ordernamen: <br>
+Namen für Unterordner sind je nach Logik zu wählen. Beispielsweise könnte eine FAQ Seite im Ordernamen: <br>
 >**/faq/faq.html**
 
 zu finden sein.
@@ -140,15 +140,15 @@ Die Struktur ist:
 
 Kürzere `scripts` dürfen einfach in der HTMl-File eingebaut werden. Ein Beispiel wären lokale Animationen, die nur in dieser File benötigt werden. Mehrfach verwendbare oder größere `scripts` bitte auslagern.
 
-### <span style="color = red;">_Achtung:_</span>
+### _Achtung:_
 Die Angabe von Links muss **IMMER** relativ erfolgen! Sonst funktioniert die Logik der Webseite von Nutzer zu Server nicht mehr.
 >**&lt;a href="/wordle-game.html"&gt;**
 
-Außerdem wird der letzte URL Tag, also der Filename mit der Endung .html, gekürzt.
->**&lt;a href="/wordle-game"&gt;**
-
 Gleiches gilt für z.B. den Import von CSS Dateien in die HTML oder PHP Datei.
 >**&lt;link rel="stylesheet" href="/css/design.css"&gt;**
+
+Außerdem wird der letzte URL Tag, also der Filename mit der Endung .html, gekürzt.
+>**&lt;a href="/wordle-game"&gt;**
 
 Das **/** vor `css` oder `wordle-game` sagt dem Interpreter, dass er vom Root Verzeichnes ausgehend die Ordnerlogik abarbeitet. In diesem Fall also von (root = in VS Code angebener Worplace, also der Ordner in dem die README.md, index.html, etc liegen):
 >**root -> css -> design.css**
