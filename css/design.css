@@ -1,0 +1,16 @@
+/* main css elememts for the entire project */
+
+/* removes basic padding and maring from any page */
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* colors */
+
+/* button styles */
