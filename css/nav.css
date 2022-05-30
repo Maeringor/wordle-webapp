@@ -1,0 +1,62 @@
+header{
+    background-color: red;
+}
+
+.header-cotnainer{
+    height: 10vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basic-links .basic-links-container{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basic-links-container li{
+    margin-right: 30px;
+}
+.basic-links-container li:nth-child(3){
+    margin-right: 50px;
+}
+
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container .user-btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 100px;
+}
+.login-container .user-btn:first-child{
+    margin-right: 30px;
+    
+}
+
+.login-container .user-btn a{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+.login-container .user-btn .btn-login{
+    background-color: antiquewhite;
+}
+.login-container .user-btn .btn-registry{
+    font-weight: bold;
+}
