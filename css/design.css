@@ -11,6 +11,15 @@ body{
     padding: 0;
 }
 
+/* basic padding */
+.basic-padding{
+    padding-left: 148px;
+    padding-right: 148px;
+}
+
 /* colors */
 
 /* button styles */
+a{
+    text-decoration: none;
+}
