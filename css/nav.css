@@ -30,20 +30,27 @@ header{
     margin-right: 50px;
 }
 
+.basic-links-container li .page-link{
+    transition: ease-in .2s;
+}
+.basic-links-container li .page-link:hover{
+    color: aquamarine;
+}
+
 .login-container{
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .login-container .user-btn{
-    width: 100px;
+    width: fit-content;
     height: 40px;
     border-radius: 100px;
 }
-.login-container .user-btn:first-child{
+.login-container .user-btn:nth-child(1){
     margin-right: 30px;
-    
 }
 
 .login-container .user-btn a{
@@ -53,10 +60,28 @@ header{
     justify-content: center;
     align-items: center;
     border-radius: inherit;
+    transition: ease-in .2s;
 }
 .login-container .user-btn .btn-login{
+    width: 100px;
     background-color: antiquewhite;
 }
+.login-container .user-btn .btn-login:hover{
+    background-color: rgb(204, 134, 42);
+}
 .login-container .user-btn .btn-registry{
+    width: 100px;
     font-weight: bold;
+}
+.login-container .user-btn .btn-registry:hover{
+    color: rgb(224, 29, 162);
+}
+
+.login-container .user-btn .btn-my-profile{
+    width: 230px;
+    float: right;
+}
+
+.no-display{
+    display: none;
 }
