@@ -32,7 +32,11 @@ a {
 }
 
 
-/* Colors +/
+/* Colors */
+
+.primary-white-bg {
+    background-color: #FFFFFF;
+}
 
 
 /* Fonts + Letter Spacing */
