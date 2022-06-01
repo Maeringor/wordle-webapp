@@ -1,25 +1,38 @@
 /* main css elememts for the entire project */
 
+
 /* removes basic padding and maring from any page */
-html{
+
+html {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
+
 
 /* basic padding */
-.basic-padding{
+
+.basic-padding {
     padding-left: 148px;
     padding-right: 148px;
 }
 
+
 /* colors */
 
+
 /* button styles */
-a{
+
+a {
     text-decoration: none;
 }
+
+
+/* Colors +/
+
+
+/* Fonts + Letter Spacing */
