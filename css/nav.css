@@ -1,10 +1,5 @@
-header{
-    background-color: red;
-}
-
 .header-cotnainer{
-    height: 10vh;
-    background-color: aqua;
+    height: 12vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,6 +9,26 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo{
+    font-size: 27px;
+    font-family: 'Playfair Display', serif;
+    width: fit-content;
+    height: fit-content;
+    transition: ease-in-out .35s;
+}
+.logo:hover{
+    letter-spacing: 1.6px;
+    cursor: pointer;
+    will-change: auto;
+}
+
+.logo .special-logo:nth-child(1){
+    font-family: 'Noto Sans Display', sans-serif;
+}
+.logo .special-logo:nth-child(2){
+    font-style: italic;
 }
 
 .basic-links .basic-links-container{
@@ -32,9 +47,8 @@ header{
 
 .basic-links-container li .page-link{
     transition: ease-in .2s;
-}
-.basic-links-container li .page-link:hover{
-    color: aquamarine;
+    transform-origin: center;
+    text-align: center;
 }
 
 .login-container{
@@ -64,17 +78,18 @@ header{
 }
 .login-container .user-btn .btn-login{
     width: 100px;
-    background-color: antiquewhite;
 }
 .login-container .user-btn .btn-login:hover{
-    background-color: rgb(204, 134, 42);
+    background-color: #e62540;
+    color: white;
 }
 .login-container .user-btn .btn-registry{
     width: 100px;
     font-weight: bold;
 }
 .login-container .user-btn .btn-registry:hover{
-    color: rgb(224, 29, 162);
+    color: #e62540;
+    letter-spacing: 1.8px;
 }
 
 .login-container .user-btn .btn-my-profile{
