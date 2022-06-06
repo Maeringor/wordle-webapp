@@ -5,4 +5,7 @@
 
 // Datenbank Connection
 
+// Web-Server Configs
+$root_path = $_SERVER['DOCUMENT_ROOT'];
+
 ?>

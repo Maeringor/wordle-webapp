@@ -1,0 +1,167 @@
+.header-cotnainer{
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.logo{
+    font-size: 27px;
+    font-family: 'Playfair Display', serif;
+    width: fit-content;
+    height: fit-content;
+    transition: ease-in-out .35s;
+}
+.logo:hover{
+    letter-spacing: 1.6px;
+    cursor: pointer;
+    will-change: auto;
+}
+
+.logo .special-logo:nth-child(1){
+    font-family: 'Noto Sans Display', sans-serif;
+}
+.logo .special-logo:nth-child(2){
+    font-style: italic;
+}
+
+.basic-links .basic-links-container{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basic-links-container li{
+    margin-right: 30px;
+}
+.basic-links-container li:nth-child(3){
+    margin-right: 50px;
+}
+
+/* == nav links setup == */
+.basic-links-container li .page-link{
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+/* == mask within Links == */
+.mask{
+    position: relative;
+    padding: 0;
+    height: 20px;
+
+    /* == hide content above/beneath mask height == */
+    overflow: hidden;
+}
+/* == Single container for inne spans == */
+.mask .single-link-container{
+    transition: transform 0.60s ease;
+}
+/* == inner span setup == */
+.mask .single-link-container .title{
+    display: block;
+    line-height: 20px;
+    transition: transform 0.60s ease;
+}
+/* == special rotation span 1 == */
+.mask .single-link-container .link-title1{
+    transform-origin: right center;
+}
+/* == special rotation span 2 beneath == */
+.mask .single-link-container .link-title2{
+    transform-origin: left center;
+    transform: rotate(15deg);
+}
+.basic-links-container li .page-link:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.basic-links-container li .page-link:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
+}
+.basic-links-container li .page-link:hover .single-link-container .link-title2{
+    transform: rotate(0);
+}
+
+/* == user buttons setup == */
+.login-container{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container .user-btn{
+    width: fit-content;
+    height: 40px;
+    border-radius: 100px;
+}
+.login-container .user-btn:nth-child(1){
+    margin-right: 30px;
+}
+
+.login-container .user-btn a{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    transition: ease-in .265s;
+    
+}
+
+/* == login button == */
+.login-container .user-btn .btn-login{
+    width: 100px;
+}
+.login-container .user-btn .btn-login:hover{
+    background-color: #e62540;
+    color: white;
+}
+.btn-login:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.btn-login:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
+}
+.btn-login:hover .single-link-container .link-title2{
+    transform: rotate(0);
+}
+
+/* == registry button == */
+.login-container .user-btn .btn-registry{
+    width: 100px;
+    font-weight: bold;
+}
+.btn-registry:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.btn-registry:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
+    color: #e62540;
+}
+.btn-registry:hover .single-link-container .link-title2{
+    transform: rotate(0);
+    color: #e62540;
+}
+
+/* == profile button == */
+.login-container .user-btn .btn-my-profile{
+    width: 230px;
+    float: right;
+}
+
+/* == display setting for button logic == */
+.no-display{
+    display: none;
+}

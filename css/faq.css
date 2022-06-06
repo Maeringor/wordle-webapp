@@ -1,0 +1,97 @@
+.headline-container{
+    width: 100%;
+    margin-top: 6vh;
+}
+
+/* == headline styles == */
+.headline{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.headline-subcontainer{
+    position: relative;
+}
+
+.headline-subcontainer .headline{
+    position: relative;
+    line-height: 110%;
+}
+.headline-subcontainer .headline object{
+    position: absolute;
+    bottom: 12px;
+    right: -20px;
+}
+
+/* == container for all FAQ cards == */
+.faq-cards-container{
+    width: 100%;
+    min-height: 10px;
+    margin-top: 13vh;
+}
+
+/* == single card style == */
+.single-faq-card{
+    width: 730px;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.single-faq-card:nth-child(1){
+    margin-top: 0;
+}
+
+.single-faq-card .card-top{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding-left: 30px;
+    border-radius: inherit;
+}
+
+.single-faq-card .text-content{
+    margin-top: 34px;
+    padding: 0px 82px 25px;
+    display: none;
+}
+
+
+/* == cross element setup == */
+.card-top .plus-element-container{
+    position: relative;
+    width: 22px;
+    height: 22px;
+    margin-right: 30px;
+}
+
+.cross-element{
+    width: 4px;
+    height: 22px;
+    background-color: #2f2f2f;
+    border-radius: 190px;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    transition: transform .25s ease-in;
+}
+
+
+/* == card active styles == */
+.active .card-headline{
+    color: white;
+}
+
+.active .text-content{
+    display: block;
+}
+
+.active .cross-element{
+    background-color: white;
+    transform: rotate(90deg);
+}
