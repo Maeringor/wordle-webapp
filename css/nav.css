@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .logo{
@@ -45,12 +46,53 @@
     margin-right: 50px;
 }
 
+/* == nav links setup == */
 .basic-links-container li .page-link{
-    transition: ease-in .2s;
-    transform-origin: center;
-    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;
 }
 
+/* == mask within Links == */
+.mask{
+    position: relative;
+    padding: 0;
+    height: 20px;
+
+    /* == hide content above/beneath mask height == */
+    overflow: hidden;
+}
+/* == Single container for inne spans == */
+.mask .single-link-container{
+    transition: transform 0.60s ease;
+}
+/* == inner span setup == */
+.mask .single-link-container .title{
+    display: block;
+    line-height: 20px;
+    transition: transform 0.60s ease;
+}
+/* == special rotation span 1 == */
+.mask .single-link-container .link-title1{
+    transform-origin: right center;
+}
+/* == special rotation span 2 beneath == */
+.mask .single-link-container .link-title2{
+    transform-origin: left center;
+    transform: rotate(15deg);
+}
+.basic-links-container li .page-link:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.basic-links-container li .page-link:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
+}
+.basic-links-container li .page-link:hover .single-link-container .link-title2{
+    transform: rotate(0);
+}
+
+/* == user buttons setup == */
 .login-container{
     width: fit-content;
     display: flex;
@@ -74,8 +116,11 @@
     justify-content: center;
     align-items: center;
     border-radius: inherit;
-    transition: ease-in .2s;
+    transition: ease-in .265s;
+    
 }
+
+/* == login button == */
 .login-container .user-btn .btn-login{
     width: 100px;
 }
@@ -83,20 +128,40 @@
     background-color: #e62540;
     color: white;
 }
+.btn-login:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.btn-login:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
+}
+.btn-login:hover .single-link-container .link-title2{
+    transform: rotate(0);
+}
+
+/* == registry button == */
 .login-container .user-btn .btn-registry{
     width: 100px;
     font-weight: bold;
 }
-.login-container .user-btn .btn-registry:hover{
+.btn-registry:hover .mask .single-link-container{
+    transform: translateY(-20px);
+}
+.btn-registry:hover .mask .single-link-container .link-title1{
+    transform: rotate(15deg);
     color: #e62540;
-    letter-spacing: 1.8px;
+}
+.btn-registry:hover .single-link-container .link-title2{
+    transform: rotate(0);
+    color: #e62540;
 }
 
+/* == profile button == */
 .login-container .user-btn .btn-my-profile{
     width: 230px;
     float: right;
 }
 
+/* == display setting for button logic == */
 .no-display{
     display: none;
 }

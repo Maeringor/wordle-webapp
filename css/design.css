@@ -87,39 +87,39 @@ a {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;500;700&family=Playfair+Display:ital@0;1&display=swap');
 .specail-head {
     font-family: 'Playfair Display', serif;
-    size: 213px;
+    font-size: 213px;
     letter-spacing: 5;
     font-weight: normal;
 }
 
 .master-head {
     font-family: 'Playfair Display', serif;
-    size: 120px;
+    font-size: 120px;
 }
 
 .second-head {
     font-family: 'Noto Sans Display', sans-serif;
-    size: 53px;
+    font-size: 53px;
 }
 
 .third-head {
     font-family: 'Noto Sans Display', sans-serif;
-    size: 40px;
+    font-size: 40px;
 }
 
 .sub-head {
     font-family: 'Noto Sans Display', sans-serif;
-    size: 27px;
+    font-size: 27px;
 }
 
 .paragraph {
     font-family: 'Noto Sans Display', sans-serif;
-    size: 18px;
+    font-size: 18px;
 }
 
 .small-text {
     font-family: 'Noto Sans Display', sans-serif;
-    size: 16px;
+    font-size: 16px;
 }
 
 .regular {
