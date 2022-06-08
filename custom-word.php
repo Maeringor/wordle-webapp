@@ -44,7 +44,7 @@
                             <!-- info button -->
 
                             <!-- cta button -->
-                            <button class="main-button"></button>
+                            <button class="main-button">Submit</button>
                         </div>
                         
                     </div>
