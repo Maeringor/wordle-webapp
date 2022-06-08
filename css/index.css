@@ -1,0 +1,39 @@
+.main-btn-pos {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headline-container {
+    position: relative;
+    width: 100%;
+    margin-top: 6vh;
+    margin-bottom: 16vh;
+}
+
+.headline {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.headline-subcontainer {
+    position: relative;
+}
+
+.headline-subcontainer .headline {
+    position: relative;
+    line-height: 110%;
+}
+
+.headline-subcontainer .headline object {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+}
+
+.quadrat-pos {
+    position: absolute;
+    left: 150px;
+    bottom: 250px;
+    z-index: -1;
+}
