@@ -23,12 +23,13 @@
 
         <!-- headline area -->
         <div class="headline-container primary-textcol master-head letter-spacing-small medium">
-            <div class="headline">What is Wordle</div>
+            <div class="headline"><div class="quadrat-text-element light-blue-bg quadrat-pos"></div>What is Wordle</div>
             <div class="headline-subcontainer">
                 <div class="headline">and how to play it
                     <object data="/rescources/svg/small-dot.svg" width="15px" height="15px"></object>
-                    <div class="quadrat-text-element light-blue-bg quadrat-pos"></div>
+                    
                 </div>
+                
             </div>
 
             

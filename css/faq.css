@@ -6,8 +6,8 @@
 
 .quadrat-pos {
     position: absolute;
-    left: 320px;
-    top: 55px;
+    left: -5px;
+    bottom: 0px;
     z-index: -1;
 }
 
@@ -15,6 +15,7 @@
 /* == headline styles == */
 
 .headline {
+    position: relative;
     width: fit-content;
     height: fit-content;
     margin: auto;
