@@ -44,6 +44,7 @@
                             <!-- info button -->
 
                             <!-- cta button -->
+                            <button class="main-button"></button>
                         </div>
                         
                     </div>
