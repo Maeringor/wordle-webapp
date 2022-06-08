@@ -60,6 +60,10 @@ a {
     color: #5068ed;
 }
 
+.red-textcol {
+    color: hsl(352, 79%, 52%);
+}
+
 
 /* Backgroundcolors */
 
