@@ -82,7 +82,7 @@
     cursor: text;
     transition: top 400ms ease-in,
         left 400ms ease-in,
-        font-size 800ms ease-in;
+        font-size 400ms ease-in;
 
     border-radius: 8px;
 }
@@ -91,13 +91,15 @@ textarea:focus, input:focus, input:hover{
     outline: none;
     background-color: white;    
 }
-input:hover ~ .form-lable{
+input:hover + .form-lable{
     background-color: white;
 }
 .content-container .input-container .form .input-field input:focus{
     border: 3px solid #5068ed;
 }
 
+/* == special style for the lable element to stay ontop of input field
+      if at least one letter has been entered  == */
 .content-container .input-container .form .input-field input:focus + .form-lable,
 .content-container .input-container .form .input-field input:not(:placeholder-shown) + .form-lable
 {
