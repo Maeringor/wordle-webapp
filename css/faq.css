@@ -1,38 +1,53 @@
-.headline-container{
+.headline-container {
+    position: relative;
     width: 100%;
     margin-top: 6vh;
 }
 
+.quadrat-pos {
+    position: absolute;
+    left: 320px;
+    top: 55px;
+    z-index: -1;
+}
+
+
 /* == headline styles == */
-.headline{
+
+.headline {
     width: fit-content;
     height: fit-content;
     margin: auto;
 }
 
-.headline-subcontainer{
+.headline-subcontainer {
     position: relative;
 }
 
-.headline-subcontainer .headline{
+.headline-subcontainer .headline {
     position: relative;
     line-height: 110%;
 }
-.headline-subcontainer .headline object{
+
+.headline-subcontainer .headline object {
     position: absolute;
     bottom: 12px;
     right: -20px;
 }
 
+
 /* == container for all FAQ cards == */
-.faq-cards-container{
+
+.faq-cards-container {
     width: 100%;
     min-height: 10px;
     margin-top: 13vh;
 }
 
+
 /* == single card style == */
-.single-faq-card{
+
+.single-faq-card {
     width: 730px;
     height: fit-content;
     margin-left: auto;
@@ -41,11 +56,12 @@
     cursor: pointer;
     border-radius: 8px;
 }
-.single-faq-card:nth-child(1){
+
+.single-faq-card:nth-child(1) {
     margin-top: 0;
 }
 
-.single-faq-card .card-top{
+.single-faq-card .card-top {
     display: flex;
     align-items: center;
     height: 70px;
@@ -53,7 +69,7 @@
     border-radius: inherit;
 }
 
-.single-faq-card .text-content{
+.single-faq-card .text-content {
     margin-top: 34px;
     padding: 0px 82px 25px;
     display: none;
@@ -61,37 +77,43 @@
 
 
 /* == cross element setup == */
-.card-top .plus-element-container{
+
+.card-top .plus-element-container {
     position: relative;
     width: 22px;
     height: 22px;
     margin-right: 30px;
 }
 
-.cross-element{
+.cross-element {
     width: 4px;
     height: 22px;
     background-color: #2f2f2f;
     border-radius: 190px;
     position: absolute;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
+    left: 0;
+    right: 0;
+    margin-left: auto;
     margin-right: auto;
     transition: transform .25s ease-in;
 }
 
+.space-bottom {
+    padding: 50px;
+}
+
 
 /* == card active styles == */
-.active .card-headline{
+
+.active .card-headline {
     color: white;
 }
 
-.active .text-content{
+.active .text-content {
     display: block;
 }
 
-.active .cross-element{
+.active .cross-element {
     background-color: white;
     transform: rotate(90deg);
 }
