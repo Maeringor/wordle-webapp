@@ -39,7 +39,7 @@
 
     <!-- cta btn -->
     <div class="main-button blue-bg  main-btn-pos">
-        <a class="secondary-textcol" href="#">Start a Game</a>
+        <a class="secondary-textcol letter-spacing-big medium paragraph" href="#">Start a game</a>
     </div>
     <!-- cta btn end -->
 
