@@ -1,13 +1,12 @@
-*{
-    box-sizing: border-box;
-}
 .headline-container{
+    position: relative;
     width: 100%;
     margin-top: 1.5vh;
 }
 
 /* == headline styles == */
 .headline{
+    position: relative;
     width: fit-content;
     height: fit-content;
     line-height: 90%;
@@ -30,23 +29,23 @@
 .content-container{
     width: 100%;
     height: 500px;
-    margin-top: 10vh;
+    margin-top: 8vh;
     background: linear-gradient(90deg, #5068ed, #e62540);
-    border-radius: 8px;  
+    border-radius: 8px;
 }
 
 .input-container{
     width: fit-content;
-    height: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
+    height: 100%;
+    margin: auto;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .input-container .input-head{
     text-align: center;
-    margin-top: 2vh;
 }
 
 .input-container .input-field{
@@ -98,6 +97,20 @@ input:hover + .form-lable{
     border: 3px solid #5068ed;
 }
 
+/* == cta styles == */
+.form .cta-btn{
+    margin-top: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.form .cta-btn button{
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
 /* == special style for the lable element to stay ontop of input field
       if at least one letter has been entered  == */
 .content-container .input-container .form .input-field input:focus + .form-lable,
@@ -107,6 +120,19 @@ input:hover + .form-lable{
     left: 14%;
     font-size: 12px;
     color: white;
-    background: linear-gradient(90deg, #5068ed, #e62540);
+    background-color: #00d684;
 }
-  
+
+/* == special headline element == */
+.quadrat-pos{
+    position: absolute;
+    left: -18px;
+    top: 51px;
+    z-index: -1;
+}
+
+.info-btn-position{
+    position: absolute;
+    right: -45px;
+    top: 30px;
+}
