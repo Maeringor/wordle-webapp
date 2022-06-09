@@ -1,8 +1,10 @@
 .headline-container {
     position: relative;
     width: 100%;
-    margin-top: 6vh;
+    margin-top: 5vh;
 }
+
+/* == quadrat text element style == */
 
 .quadrat-pos {
     position: absolute;
@@ -41,8 +43,12 @@
 
 .faq-cards-container {
     width: 100%;
-    min-height: 10px;
-    margin-top: 13vh;
+    margin-top: 8.5vh;
+    
+}
+
+.space-bottom{
+    padding-bottom: 50px;
 }
 
 
@@ -99,9 +105,7 @@
     transition: transform .25s ease-in;
 }
 
-.space-bottom {
-    padding: 50px;
-}
+
 
 
 /* == card active styles == */
