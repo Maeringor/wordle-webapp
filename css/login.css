@@ -1,0 +1,103 @@
+.headline-container {
+    position: relative;
+    width: 100%;
+}
+
+.headline {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
+}
+
+.headline object {
+    position: absolute;
+    top: 32px;
+}
+
+.quadrat-bg {
+    position: relative;
+    width: 950px;
+    height: 750px;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.input-container {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    padding: 50px;
+    display: flex;
+}
+
+.input-container .input-head {
+    text-align: center;
+}
+
+.input-container .input-field {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    min-width: 500px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 8px;
+    padding-top: 80px;
+    background-color: blueviolet;
+}
+
+.input-container input::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: 3px;
+}
+
+.input-container .input-field input {
+    width: inherit;
+    height: inherit;
+    padding: 0px;
+    border-radius: inherit;
+    border: none;
+    background-color: red;
+}
+
+
+/* == cta styles == */
+
+.form .cta-btn {
+    margin-top: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.form .cta-btn button {
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+.quadrat-bg .input-container .form .input-field .form-label {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    background-color: aquamarine;
+}
