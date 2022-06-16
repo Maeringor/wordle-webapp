@@ -1,0 +1,128 @@
+.headline-container {
+    position: relative;
+    width: 100%;
+}
+
+.headline {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
+}
+
+.headline object {
+    position: absolute;
+    top: 32px;
+}
+
+.quadrat-bg {
+    position: relative;
+    width: 950px;
+    height: 750px;
+    margin: auto;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.input-container {
+    width: fit-content;
+    height: 100%;
+    margin: auto;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-container {
+    width: fit-content;
+    height: fit-content;
+}
+
+.input-container .input-head {
+    text-align: center;
+}
+
+.input-container .input-field {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    min-width: 500px;
+    margin: auto;
+    margin-top: 80px;
+    border-radius: 8px;
+}
+
+.input-container .input-field::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+    height: 3px;
+    background-color: gray;
+}
+
+.input-container .input-field input {
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    border: none;
+    padding-left: 50px;
+}
+
+
+/* == cta styles == */
+
+.form .cta-btn {
+    margin-top: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.form .cta-btn button {
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+
+.quadrat-bg .input-container .form .input-field .form-lable {
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    left: 5%;
+    top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: top 400ms ease-in, font-size 400ms ease-in;
+}
+
+textarea:focus,
+input:focus,
+input:hover {
+    outline: none;
+}
+
+
+/* == special style for the lable element to stay ontop of input field
+      if at least one letter has been entered  == */
+
+.quadrat-bg .input-container .form .input-field input:focus+.form-lable,
+.quadrat-bg .input-container .form .input-field input:not(:placeholder-shown)+.form-lable {
+    top: -15px;
+    font-size: 15px;
+}
+
+input:focus+input::after {
+    background-color: brown;
+}
+
+input:hover+.input-field::after {
+    background-color: green;
+}

@@ -23,7 +23,7 @@ body {
 
 /* setting the default box sizing for any page */
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -92,7 +92,7 @@ a {
 }
 
 .green-bg {
-    background-color: #00d684;
+    background-color: #00bd75;
 }
 
 .yellow-bg {
