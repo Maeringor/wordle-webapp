@@ -1,0 +1,140 @@
+.headline-container {
+    position: relative;
+    width: 100%;
+    margin-top: 5vh;
+}
+
+/* == quadrat text element style == */
+
+.quadrat-pos {
+    position: absolute;
+    left: -5px;
+    bottom: 0px;
+    z-index: -1;
+}
+
+
+/* == headline styles == */
+
+.headline {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
+.headline-subcontainer {
+    position: relative;
+}
+
+.headline-subcontainer .headline {
+    position: relative;
+    line-height: 110%;
+}
+
+.headline-subcontainer .headline object {
+    position: absolute;
+    bottom: 12px;
+    right: -20px;
+}
+
+/* == content styles == */
+.content-container{
+    width: 100%;
+    height: 500px;
+    margin-top: 8vh;
+    background: linear-gradient(90deg, #5068ed, #e62540);
+    border-radius: 8px;
+}
+
+.input-container{
+    width: fit-content;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container .input-field{
+    position: relative;
+    width: 730px;
+    height: 80px;
+    min-width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+.input-container .input-field input{
+    width: inherit;
+    height: inherit;
+    padding: 0px;
+    border-radius: inherit;
+    text-align: center;
+    border: none;
+}
+
+.content-container .input-container .form .input-field .form-lable{
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -12.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: text;
+    transition: top 400ms ease-in,
+        left 400ms ease-in,
+        font-size 400ms ease-in;
+
+    border-radius: 8px;
+}
+
+textarea:focus, input:focus, input:hover{
+    outline: none;
+    background-color: white;    
+}
+input:hover + .form-lable{
+    background-color: white;
+}
+.content-container .input-container .form .input-field input:focus{
+    border: 3px solid #5068ed;
+}
+
+.special-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.special-input #friendURL{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin-left: 2vw;
+    border: none;
+    padding-left: 25px;
+    border-radius: 8px;
+}
+
+/* == special style for the lable element to stay ontop of input field
+      if at least one letter has been entered  == */
+.content-container .input-container .form .input-field input:focus + .form-lable,
+.content-container .input-container .form .input-field input:not(:placeholder-shown) + .form-lable
+{
+    top: 0%;
+    left: 14%;
+    font-size: 12px;
+    color: white;
+    background-color: #00d684;
+}
+
+.info-btn-position{
+    position: absolute;
+    right: -45px;
+    top: 30px;
+}
