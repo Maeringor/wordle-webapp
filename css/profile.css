@@ -1,0 +1,220 @@
+.content-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* == top headlines section styles == */
+.content-container .content-container-head{
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.content-container-head .left-container{
+    position: relative;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.content-container-head .left-container .profile-img-container{
+    width: 180px;
+    height: 180px;
+    border-radius: 999px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container-head .left-container .welcome-text{
+    margin-left: 2vw;
+}
+
+
+/* == user infos style == */
+.content-container-user-infos{
+    position: relative;
+    width: 100%;
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container-user-infos .user-infos-left{
+    flex: 1;
+    max-height: 600px;
+}
+
+.user-infos-left form{
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.user-infos-left form .input-field{
+    position: relative;
+}
+
+.user-infos-left form .input-field input{
+    position: relative;
+    width: 320px;
+    height: 50px;
+    padding-left: 20px;
+    border-radius: 8px;
+    border: none;
+    transition: .17s ease-in;
+}
+
+.user-infos-left form .input-field input:hover{
+    background-color: #f5f5f5;
+}
+.user-infos-left form input:focus{
+    background-color: white;
+}
+
+.user-infos-left form .input-field .bottom-border{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 0px;
+    height: 2px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4158d8;
+    transition: .17s ease-in;
+}
+.user-infos-left form input:focus + .bottom-border{
+    width: 320px;
+}
+.user-infos-left form .input-field input:hover + .bottom-border{
+    width: 0px;
+}
+
+.user-infos-left form .input-field label{
+    display: block;
+    margin-bottom: 20px;
+}
+
+.user-infos-left form .change-btn-container{
+    display: flex;
+    align-items: flex-end;
+    width: fit-content;
+}
+
+.user-infos-left form .change-btn-container .change-btn{
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    border: none;
+    transition: .17s ease-in;
+}
+.user-infos-left form .change-btn-container .change-btn:hover{
+    background-color: #4158d8;
+    letter-spacing: 1.1px;
+}
+
+.user-infos-left .delete-btn-container .delete-btn{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 50px;
+    cursor: pointer;
+    opacity: .76;
+    transition: .17s ease-in;
+}
+.user-infos-left .delete-btn-container .delete-btn:hover{
+    opacity: 1;
+}
+
+/* == bottom left score styles == */
+.user-infos-left .score-container{
+    width: 490px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(115deg, #5068ed, #e62540);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 16vh;
+}
+
+.score-container .score{
+    margin-right: 70px;
+}
+
+
+.content-container-user-infos .user-infos-right{
+    flex: 1;
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.user-infos-right::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+.user-infos-right {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* == history cards design == */
+.user-infos-right .history-card{
+    width: 35vw;
+    height: 70px;
+    padding: 0 40px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    float: right;
+}
+.user-infos-right .history-card:first-child{
+    margin: 0 auto;
+}
+
+.history-card .position{
+    text-align: right;
+}
+
+
+
+.display-none{
+    display: none;
+}
+
+#saveImg{
+    position: absolute;
+    bottom: -20px;
+    left: 60px;
+    width: 50px;
+    height: 50px;
+    background-color: #5068ed;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    font-size: 10px;
+    font-family: 'Noto Sans Display', sans-serif;
+    box-shadow: 0 0 16px #5068ed;
+    transition: .17s ease-in;
+}
+
+#saveImg:hover{
+    background-color:#4158d8; 
+}
