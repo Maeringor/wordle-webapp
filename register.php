@@ -9,7 +9,7 @@
     <!-- Globeles Stylesheet -->
     <link rel='stylesheet' type='text/css' media='screen' href='/css/design.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/elements.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/login.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/register.css'>
 
 </head>
 
@@ -31,7 +31,7 @@
             <div class="input-container">
                 <div class="inner-container">
 
-                    <div class="input-head sub-head letter-spacing-small regular blue-tetxcol">Login</div>
+                    <div class="input-head sub-head letter-spacing-small regular blue-tetxcol">Register</div>
 
                     <form class="form" action="">
                         <div class="input-field">
@@ -42,6 +42,11 @@
                         <div class="input-field">
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" placeholder=" ">
                             <label for="pass" class="form-lable small-text regular light-gray-bg">Password</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="passConfirm" placeholder=" ">
+                            <label for="passConfirm" class="form-lable small-text regular light-gray-bg">Password Confirm</label>
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">

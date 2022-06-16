@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Wordle</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Globeles Stylesheet -->
     <link rel='stylesheet' type='text/css' media='screen' href='/css/design.css'>
@@ -38,8 +38,8 @@
     <!-- headline area end -->
 
     <!-- cta btn -->
-    <div class="main-button blue-bg  main-btn-pos">
-        <a class="secondary-textcol letter-spacing-big medium paragraph" href="#">Start a game</a>
+    <div class="main-button blue-bg  main-btn-pos main-btn-shadow">
+        <a class="secondary-textcol letter-spacing-big medium paragraph" href="gamemodis.php">Start a game</a>
     </div>
     <!-- cta btn end -->
 

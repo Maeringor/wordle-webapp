@@ -92,12 +92,12 @@
 
 .quadrat-bg .input-container .form .input-field .form-lable {
     position: absolute;
-    width: 100px;
+    width: 150px;
     height: 25px;
     left: 5%;
     top: 14px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     border-radius: 8px;
     transition: top 400ms ease-in, font-size 400ms ease-in;
