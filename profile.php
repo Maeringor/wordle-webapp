@@ -1,5 +1,6 @@
 <?php
 include "php/processUploadImageForm.php";
+require_once "php/functions.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,12 @@ include "php/processUploadImageForm.php";
 
 <body>
     <!-- add header -->
-    <?php include 'html_structures/nav.html'; ?>
+    <?php include 'html_structures/nav.php'; ?>
+    <?php
+        if (!isset($_SESSION["uid"])) {
+            header("location: ../login.php");
+            exit();
+        } ?>
 
     <section class="basic-padding">
 
@@ -36,7 +42,7 @@ include "php/processUploadImageForm.php";
                         <!-- choosable img from user -->   
                         <input id="profilePic" name="profilePic" type="file" accept=".jpeg,.png,.svg,.jpg" onchange="displayImage(this)" class="profile-img-container" style="display:none;" >
                         <button id="saveImg" name="saveImg" type="submit" style="display:none;">submit</button>
-                        <div class="welcome-text third-head medium primary-textcol letter-spacing-small">Hello <span class="bold">User1</span></div>
+                        <div class="welcome-text third-head medium primary-textcol letter-spacing-small">Hello <span class="bold"><?php echo $_SESSION["uname"]; ?></span></div>
                         
                     </div>
                 </form>
@@ -50,10 +56,10 @@ include "php/processUploadImageForm.php";
             <!-- user information area -->
             <div class="content-container-user-infos">
                 <div class="user-infos-left">
-                    <form action="/profile.php" method="post">
+                    <form action="/php/changeusername.php" method="post">
                         <div class="input-field">
                             <label class="paragraph bold" for="username">Username</label>
-                            <input minlength="5" id="username" name="username" value="User1" class="paragraph gray-bg" type="text" autocomplete="off" placeholder=" ">
+                            <input minlength="5" id="username" name="username" value=<?php echo "'".$_SESSION["uname"]."'"; ?> class="paragraph gray-bg" type="text" autocomplete="off" placeholder=" ">
                             <!-- broder for input -->
                             <div class="bottom-border"></div>
                         </div>
@@ -65,18 +71,20 @@ include "php/processUploadImageForm.php";
                     </form>
 
                     <div class="delete-btn-container">
-                        <button id="deleteButton" class="delete-btn small-text medium secondary-textcol red-bg">Delete profile</button>
+                        <form action="/php/deleteprofile.php" method="post">
+                            <button id="deleteButton" class="delete-btn small-text medium secondary-textcol red-bg">Delete profile</button>
+                        </form>
                     </div>
 
                     <!-- dynamic data -->
                     <div class="score-container secondary-textcol">
                         <div class="score">
                             <div class="headline third-head">Score</div>
-                            <div class="value sub-head bold">140</div>
+                            <div class="value sub-head bold"><?php echo getScore($_SESSION["uname"]); ?></div>
                         </div>
                         <div class="place">
                             <div class="headline third-head">Place</div>
-                            <div class="value sub-head bold">16</div>
+                            <div class="value sub-head bold"><?php echo getPlace($_SESSION["uname"]); ?></div>
                         </div>
                     </div>
                     

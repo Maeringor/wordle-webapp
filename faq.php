@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +17,7 @@
 
 <body>
     <!-- add header -->
-    <?php include 'html_structures/nav.html'; ?>
+    <?php include 'html_structures/nav.php'; ?>
 
     <!-- content section -->
     <section class="basic-padding">

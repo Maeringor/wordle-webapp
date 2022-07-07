@@ -1,3 +1,4 @@
+<?php if (session_status() != PHP_SESSION_ACTIVE) {session_start();} $_SESSION["uid"] = "123";?>
 <header class="basic-padding">
 
     <div class="header-cotnainer">
@@ -10,6 +11,19 @@
         <div class="link-container">
             <div class="basic-links">
                 <ul class="basic-links-container">
+                    <li>
+                        <a href="/word-for-friends" class="page-link blue-tetxcol small-text letter-spacing-small">
+
+                            <span class="mask">
+                                <div class="single-link-container">
+                                    <span class="link-title1 title">WordForFriends</span>
+                            <span class="link-title2 title">WordForFriends</span>
+            </div>
+            </span>
+
+            </a>
+            </li>
+
                     <li>
                         <a href="/custom-word" class="page-link blue-tetxcol small-text letter-spacing-small">
 
@@ -52,31 +66,39 @@
     </div>
 
     <div class="login-container">
+        <?php if (!isset($_SESSION["uid"])) { ?>
         <div class="user-btn light-blue-bg">
             <a href="/login" class="btn-login blue-tetxcol small-text">
                 <span class="mask">
                                 <div class="single-link-container">
                                     <span class="link-title1 title">Login</span>
                 <span class="link-title2 title">Login</span>
+            </div>
+            </span>
+            </a>
+        </div>
+        <div class="user-btn">
+            <a href="/register" class="btn-registry blue-tetxcol small-text bold letter-spacing-small">
+                <span class="mask">
+                                    <div class="single-link-container">
+                                        <span class="link-title1 title">Register</span>
+                <span class="link-title2 title">Register</span>
         </div>
         </span>
         </a>
-    </div>
-    <div class="user-btn">
-        <a href="/register" class="btn-registry blue-tetxcol small-text bold letter-spacing-small">
-            <span class="mask">
-                                <div class="single-link-container">
-                                    <span class="link-title1 title">Register</span>
-            <span class="link-title2 title">Register</span>
-    </div>
-    </span>
-    </a>
-    </div>
+        </div>
+        <?php } ?>
+
     <!-- Hier folgt eine if Anweisung durch php, ob eine Session gestartet wurde.
                          Display Klasse je nachdem hinzufügen oder entfernen. -->
-    <div class="user-btn no-display">
-        <a href="#" class="btn-login btn-my-profile blue-tetxcol small-text letter-spacing-small">My Profile</a>
-    </div>
+    <?php 
+    if (isset($_SESSION["uid"])) {
+        echo '<div class="user-btn light-blue-bg">';
+        echo '<a href="/profile" class="btn-login btn-my-profile blue-tetxcol small-text letter-spacing-small">My Profile</a>';
+        echo '</div>';
+    } 
+    ?>
+    
     </div>
     </div>
     </div>

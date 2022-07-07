@@ -33,19 +33,19 @@
 
                     <div class="input-head sub-head letter-spacing-small regular blue-tetxcol">Login</div>
 
-                    <form class="form" action="">
+                    <form class="form" action="/php/signin.php" method="POST">
                         <div class="input-field">
-                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" placeholder=" ">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" name="user" placeholder=" ">
                             <label for="user" class="form-lable small-text regular light-gray-bg">Username</label>
                         </div>
 
                         <div class="input-field">
-                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" placeholder=" ">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" name="pass" placeholder=" ">
                             <label for="pass" class="form-lable small-text regular light-gray-bg">Password</label>
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">
-                            <button class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph" href="#">Submit</button>
+                            <button type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
                         </div>
                         <!-- submit btn end -->
 

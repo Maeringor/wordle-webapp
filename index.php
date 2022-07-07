@@ -15,7 +15,7 @@
 
 <body>
     <!-- add header -->
-    <?php include 'html_structures/nav.html'; ?>
+    <?php include 'html_structures/nav.php'; ?>
 
     <!-- content section -->
 

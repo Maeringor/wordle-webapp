@@ -33,7 +33,7 @@
 
                     <div class="input-head sub-head letter-spacing-small regular blue-tetxcol">Register</div>
 
-                    <form class="form" action="">
+                    <form class="form" action="/php/signup.php" method="POST">
                         <div class="input-field">
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" placeholder=" ">
                             <label for="user" class="form-lable small-text regular light-gray-bg">Username</label>
@@ -50,7 +50,7 @@
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">
-                            <button class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph" href="#">Submit</button>
+                            <button type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
                         </div>
                         <!-- submit btn end -->
 
