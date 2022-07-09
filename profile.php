@@ -72,7 +72,7 @@ require_once "php/functions.php";
 
                     <div class="delete-btn-container">
                         <form action="/php/deleteprofile.php" method="post">
-                            <button id="deleteButton" class="delete-btn small-text medium secondary-textcol red-bg">Delete profile</button>
+                            <button type="submit" id="deleteButton" name="deleteButton" class="delete-btn small-text medium secondary-textcol red-bg">Delete profile</button>
                         </form>
                     </div>
 

@@ -35,22 +35,22 @@
 
                     <form class="form" action="/php/signup.php" method="POST">
                         <div class="input-field">
-                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" placeholder=" ">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" name="user" placeholder=" ">
                             <label for="user" class="form-lable small-text regular light-gray-bg">Username</label>
                         </div>
 
                         <div class="input-field">
-                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" placeholder=" ">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" name="pass" placeholder=" ">
                             <label for="pass" class="form-lable small-text regular light-gray-bg">Password</label>
                         </div>
 
                         <div class="input-field">
-                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="passConfirm" placeholder=" ">
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="passConfirm" name="passConfirm" placeholder=" ">
                             <label for="passConfirm" class="form-lable small-text regular light-gray-bg">Password Confirm</label>
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">
-                            <button type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
+                            <button name="submit" type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
                         </div>
                         <!-- submit btn end -->
 

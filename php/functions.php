@@ -1,9 +1,9 @@
 <?php
 
-require_once "db.conn.php";
+require_once 'db.conn.php';
 
 function userExists($conn, $username) {
-    $sql = "SELECT * FROM ".$TAB_USER." WHERE UName = ?;";
+    $sql = "SELECT * FROM ".TAB_USER." WHERE UName = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         redirectForErrors("../index.php");
@@ -15,7 +15,7 @@ function userExists($conn, $username) {
     $resultData = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($resultData)) {
-        return row;
+        return $row;
     }
     else {
         return false;
@@ -28,7 +28,7 @@ function emptyInputSignup($uname, $upass, $upassRepeat) {
     return (empty($uname) || empty($upass) || empty($upassRepeat));
 }
 
-function invalidName($uname, $upass, $upassRepeat) {
+function invalidName($uname) {
     $result;
     if (!preg_match("/^[a-zA-Z0-9]*$/", $uname)) {
         $result = true;
@@ -44,7 +44,7 @@ function pwdMatch($upass, $upassRepeat) {
 }
 
 function createUser($conn, $uname, $upass) {
-    $sql = "INSERT INTO ".$TAB_USER." (UName, UPassword, UScore, UPicLink, URole) VALUES (?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO ".TAB_USER." (UName, UPassword, UScore, UPicLink, URole) VALUES (?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         redirectForErrors("../index.php");
@@ -52,10 +52,14 @@ function createUser($conn, $uname, $upass) {
 
     $hashedPwd = password_hash($upass, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssiss", $uname, $hashedPwd, 0, "/rescources/svg/basic-profile-pic.svg", "U");
+    $start_score = 0;
+    $default_piclink = "/rescources/svg/basic-profile-pic.svg";
+    $default_role = "U";
+    mysqli_stmt_bind_param($stmt, "ssiss", $uname, $hashedPwd, $start_score, $default_piclink, $default_role);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+    loginUser($conn, $uname, $upass);
     redirectForErrors("../index.php");
 }
 
@@ -83,28 +87,29 @@ function loginUser($conn, $uname, $upass) {
 
         redirectForErrors("../index.php");
     }
+}
 
     // auto link to a page
     function redirectForErrors($link_to_page) {
-        header("location: ".$link_to_page);
+        header("Location: ".$link_to_page);
         exit();
     }
 
 
 
     function getScore($username) {
-        $sql = "SELECT UScore as sc FROM ".$TAB_USER."WHERE UName=".$username.";";
-        $result = mysqli_query($sql) or die(mysqli_error());
+        $sql = "SELECT UScore as sc FROM ".TAB_USER." WHERE UName='$username';";
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
     
         $row = mysqli_fetch_assoc($result);
         return $row["sc"];
     }
 
     function getPlace($username) {
-        $sql = "SELECT * FROM ".$TAB_USER." ORDER BY UScore;";
+        $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore;";
         $counter = 1;
 
-        $result = mysqli_query($sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row["UName"] == $username) {
                 return $counter;
@@ -114,7 +119,6 @@ function loginUser($conn, $uname, $upass) {
     }
     
     function addPoint($score, $username) {
-        $sql = "INSERT INTO ".$TAB_USER."(UScore) VALUES (".$score.") WHERE UName=".$username.";";
+        $sql = "INSERT INTO ".TAB_USER."(UScore) VALUES (".$score.") WHERE UName=".$username.";";
         mysqli_query($sql) or die(mysqli_error());
     }
-}

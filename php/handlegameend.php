@@ -25,11 +25,16 @@ function put($current_score) {
         }
         
     } else if (isset($_POST["timeFieldCU"])) {
+        // check for entry in daily table exists
+
         // time active countup (daily challenge) (only minutes)
         $finalPoints = $DEFAULT_POINTS - $_POST["timeFieldCU"];
         if ($finalPoints < 1) {
             $finalPoints = 1;
         }
+        // add to daily table
+
+        // add points to overall statistic
         addPoint($current_score + $finalPoints, $_SESSION["uname"]);
     } else {
         //default game

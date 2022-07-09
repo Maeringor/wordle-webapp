@@ -49,7 +49,7 @@
                 <div class="info-btn-position paragraph">
                     <?php require 'html_structures/infobutton.php';
 
-                        setInfoButton("Enter letters via your keyboard or by clicking one the letters. 
+                        setInfoButton("Enter letters via your keyboard or by clicking on one of the letters. 
                         Press submit to verify your guess. Try to find the word. <br><br> <span class='bold'>Good luck!</span>");
                     ?>  
                 </div>

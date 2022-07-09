@@ -10,7 +10,7 @@ let rowMax = 6;
 // true for time mode (daily and normal time mode)
 var timeMode = false;
 // true indicates countdown mode --
-// false indicates coutnt up mode
+// false indicates count up mode
 var modeCD = false;
 
 // handle current game state
@@ -40,7 +40,7 @@ function getLettersAsMap() {
     const map = new Map();
     let word = randomWord.toUpperCase();
 
-    for (let i=0;i<word.length;i++){
+    for (let i=0;i<word.length;i++) {
         map.set(word[i], (word.match(new RegExp(word[i], "g"))).length);
     }
     
@@ -92,6 +92,8 @@ function checkForGameEnd(numOfCorrectAlphabets, timeEnded) {
         wordElements = document.querySelectorAll('.word-row');
     } else if (row === rowMax) {
         gameOver = true;
+        window.location.replace("/gamemodis.php");
+        alert('You lose! Try again.');
     }
 }
 
@@ -218,6 +220,31 @@ function startTimerCD(durationInSeconds, display, hiddenInputForMinutes) {
             alert('Time is up! Try again or choose another mode.');
             hiddenInputForMinutes.value=minutes;
             clearInterval(cdInterval);
+            checkForGameEnd(0, true);
+        }
+    }, 1000);
+
+}
+
+var cuInterval;
+var minutesUp;
+
+function startTimerCU(maxDurationInSeconds, display, hiddenInputForMinutes) {
+    var timer = 0, seconds;
+
+    cuInterval = setInterval(function () {
+        minutesUp = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutesUp = minutesUp < 10 ? "0" + minutesUp : minutesUp;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutesUp + ":" + seconds;
+
+        if (++timer > maxDurationInSeconds) {
+            alert('Time is up! Come again tomorrow.');
+            hiddenInputForMinutes.value=minutesUp;
+            clearInterval(cuInterval);
             checkForGameEnd(0, true);
         }
     }, 1000);

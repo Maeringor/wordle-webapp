@@ -5,16 +5,9 @@
     $entered_word_by;
     $rand_word = "";
     $key_for_custom_word = 0;
-    $bool_is_friend_word = false;
 
-    if (isset($_GET['word']) && strlen($_GET['word']) == 5 && isset($_GET['ck'])) {
-        $rand_word = $_GET['word'];
-        $key_for_custom_word = $_GET['ck'];
-        $bool_is_friend_word = true;
-    } else {
-        // set rand word from database
-        $rand_word = "Shout";
-    }
+    // set rand word from database on daily basis (check for current date on Server vs on Databse)
+    $rand_word = "Shout";
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +42,7 @@
                 <div class="info-btn-position paragraph">
                     <?php require 'html_structures/infobutton.php';
 
-                        setInfoButton("Enter letters via your keyboard or by clicking on one of the letters. You got 15 minutes!
+                        setInfoButton("Enter letters via your keyboard or by clicking on one of the letters. 
                         Press submit to verify your guess. Try to find the word. <br><br> <span class='bold'>Good luck!</span>");
                     ?>  
                 </div>
@@ -162,8 +155,7 @@
             <div class="popup-container">
                 <form action="/php/handlegameend.php" method="POST" id="timeForm">
                     <!-- inputs for the data from the game to write in the database -->
-                    <input id="timeFieldCD" name="timeFieldCD" type="number" hidden>
-                    <input id="isForFriend" name="isForFriend" type="text" value=<?php $bool_is_friend_word_text = $bool_is_friend_word ? 'true' : 'false';  echo '"'.$bool_is_friend_word_text.'"'; ?> hidden>
+                    <input id="timeFieldCU" name="timeFieldCU" type="number" hidden>
 
                     <div class="sub-head green-bg primary-textcol bold letter-spacing-small" style="margin-bottom: 2vh; border-radius: 8px;">
                         You won!
@@ -192,17 +184,15 @@
     <script src="/js/defaultgamelogic.js"></script>
     <script src="/js/wordforfriends.js"></script>
     
-    <!-- set random word via php (get word from database in this gamemode)-->
     <script>
-        let w = caesar_cipher(<?php echo '"'.$rand_word.'"'.", ".$key_for_custom_word ?>, false);
-        setInitGameValues(<?php if (isset($_GET['word']) && strlen($_GET['word']) == 5 && isset($_GET['ck'])) {?>w<?php } else {echo "'".$rand_word."'";} ?>, true, true);
+        setInitGameValues(<?php echo "'".$rand_word."'"; ?>, true, false);
 
         window.onload = function () {
-            var minutesCD = 60 * 3,
+            var maxMinutesCU = 60 * 1,
             display = document.querySelector('#time'),
-            hiddenInput = document.querySelector('#timeFieldCD'),
+            hiddenInput = document.querySelector('#timeFieldCU'),
             timeForm = document.querySelector('#timeForm');
-            startTimerCD(minutesCD, display, hiddenInput);
+            startTimerCU(maxMinutesCU, display, hiddenInput);
         };
     </script>
 

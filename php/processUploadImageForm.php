@@ -3,7 +3,6 @@
     require_once "db.conn.php";
     require_once "functions.php";
     // check if session is active, otherwise relink to login page
-    session_start();
     if (!isset($_SESSION["uid"])) {
         header("location: ../login.php");
         exit();
@@ -31,7 +30,7 @@
     
             }else{
                 // check if profile pic is set in database
-                $userExists = userExists($conn, $_SERVER["uname"]);
+                $userExists = userExists($conn, $_SESSION["uname"]);
 
                 if (empty($userExists["UPicLink"])) {
                     // if no profile pic in database use default pic

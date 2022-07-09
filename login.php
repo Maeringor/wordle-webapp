@@ -45,7 +45,7 @@
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">
-                            <button type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
+                            <button name="submit" type="submit" class="main-button blue-bg secondary-textcol letter-spacing-big medium paragraph">Submit</button>
                         </div>
                         <!-- submit btn end -->
 

@@ -1,4 +1,4 @@
-<?php if (session_status() != PHP_SESSION_ACTIVE) {session_start();} $_SESSION["uid"] = "123";?>
+<?php if (session_status() != PHP_SESSION_ACTIVE) {session_start();}?>
 <header class="basic-padding">
 
     <div class="header-cotnainer">

@@ -9,19 +9,19 @@ if (isset($_POST["submit"])) {
     $upassRepeat = $_POST["passConfirm"];
 
     if (emptyInputSignup($uname, $upass, $upassRepeat) !== false) {
-        header("location: ../register.php");
+        header("location: ../register.php?error=Emtpy");
         exit();
     }
     if (invalidName($uname) !== false) {
-        header("location: ../register.php");
+        header("location: ../register.php?error=InvalidUName");
         exit();
     }
     if (pwdMatch($upass, $upassRepeat) === false) {
-        header("location: ../register.php");
+        header("location: ../register.php?error=NoPWMatch");
         exit();
     }
     if (userExists($conn, $uname) !== false) {
-        header("location: ../register.php");
+        header("location: ../register.php?error=UserExists");
         exit();
     }
 
