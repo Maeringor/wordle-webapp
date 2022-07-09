@@ -19,7 +19,7 @@
         <!-- headline area -->
         <div class="headline-container primary-textcol ">
             <div class="headline third-head letter-spacing-small medium">Lets Wordle
-                <object data="/rescources/svg/small-dot.svg" width="8px" height="8px"></object>
+               
             </div>
 
         </div>
@@ -37,11 +37,15 @@
                         <div class="input-field">
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" name="user" placeholder=" ">
                             <label for="user" class="form-lable small-text regular light-gray-bg">Username</label>
+                            <div class="bottom-border"></div>
                         </div>
 
                         <div class="input-field">
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" name="pass" placeholder=" ">
                             <label for="pass" class="form-lable small-text regular light-gray-bg">Password</label>
+                            <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" placeholder=" ">
+                            
+                            <div class="bottom-border"></div>
                         </div>
                         <!-- submit btn -->
                         <div class="cta-btn">

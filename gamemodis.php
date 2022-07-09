@@ -36,7 +36,7 @@
         <div class="wrapper1">
             <div class="one">
                 <div id="#red-btn" class="main-button red-bg  main-btn-pos red-btn-shadow">
-                    <a class="secondary-textcol letter-spacing-big medium paragraph" href="#">Daily Challenge</a>
+                    <a class="secondary-textcol letter-spacing-big medium paragraph" href="daily-start">Daily Challenge</a>
                 </div>
             </div>
         </div>
