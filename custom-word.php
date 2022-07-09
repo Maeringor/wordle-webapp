@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,8 +16,13 @@
 
 <body>
     <!-- add header -->
-    <?php include 'html_structures/nav.html'; ?>
-    
+    <?php include 'html_structures/nav.php'; ?>
+    <?php 
+    if (!isset($_SESSION["uid"])) {
+        header('Location: login.php');
+        exit();
+    } 
+    ?>
     <section class="basic-padding">
 
         <!-- headline area -->

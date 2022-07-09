@@ -1,11 +1,10 @@
 .headline-container {
     position: relative;
     width: 100%;
-    margin-top: 5vh;
+    margin-top: 1vh;
 }
 
 /* == quadrat text element style == */
-
 .quadrat-pos {
     position: absolute;
     left: -5px;
@@ -15,7 +14,6 @@
 
 
 /* == headline styles == */
-
 .headline {
     position: relative;
     width: fit-content;
@@ -28,7 +26,7 @@
 
 .headline-subcontainer .headline {
     position: relative;
-    line-height: 110%;
+    line-height: 80%;
 }
 
 .headline-subcontainer .headline object {
@@ -61,7 +59,7 @@
     height: 80px;
     min-width: 500px;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     border-radius: 8px;
 }
 .input-container .input-field input{
@@ -104,11 +102,63 @@ input:hover + .form-lable{
     border: 3px solid #5068ed;
 }
 
+
+.content-container .drop-down-container{
+    position: relative;
+    width: 180px;
+    height: 60px;
+    z-index: 999;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+.content-container .drop-down-container input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: inherit;
+    padding: 0px 15px;
+}
+
+.content-container .drop-down-container .options{
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    border-radius: inherit;
+    background-color: white;
+    overflow: hidden;
+    font-size: 14px;
+    display: none;
+}
+
+.content-container .drop-down-container .options .single-option{
+    padding: 12px 15px;
+    cursor: pointer;
+}
+.content-container .drop-down-container .options .single-option:hover{
+    padding: 12px 15px;
+    cursor: pointer;
+    background-color: #00d684;
+    color: white;
+}
+
+.drop-down-container.active .options{
+    display: block;
+}
+
+
+/* == output styles == */
 .special-input{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 3vh;
 }
 
 .special-input #friendURL{
@@ -119,6 +169,24 @@ input:hover + .form-lable{
     border: none;
     padding-left: 25px;
     border-radius: 8px;
+}
+
+.special-input .copyBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 11px;
+    margin-right: 10px;
+    transition: all .17s ease-in;
+}
+.special-input .copyBtn:hover{
+    background-color: #4158d8;
 }
 
 /* == special style for the lable element to stay ontop of input field

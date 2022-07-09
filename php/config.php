@@ -5,25 +5,26 @@
    Aber auch für functions die allgemein benötigt werden. */
 
 // Datenbank Connection
-$DB_SERVERNAME = "";
-$DB_USERNAME = "";
+$DB_SERVERNAME = "localhost";
+$DB_USERNAME = "root";
 $DB_PASSWORD = "";
+$DB_NAME = "wordle";
 
-// Create connection
-//$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-/* if ($conn->connect_error) {
-   die("Connection failed: " . $conn->connect_error);
+if (session_status() === PHP_SESSION_NONE) {
+   /* !!!! IMPORTANT: !!!!
+   TEST ONLY - Session should start if user is loged in */
+   session_start();
+   if(!isset($_SESSION["CEASAR_KEY"])){
+      $_SESSION["CEASAR_KEY"] = rand(1, 25);
+   }
 }
- */
 
  
 // Web Connection
 $WEB_PROTOCOL = 'http';
 // url as name (www.example.com) or as ip (127.0.0.1)
 $WEB_URL = 'localhost';
-$WEB_PORT = '5555';
+$WEB_PORT = $_SERVER['SERVER_PORT'];
 
 // Web-Server Configs
 $root_path = $_SERVER['DOCUMENT_ROOT'];
