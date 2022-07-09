@@ -19,7 +19,7 @@
         <!-- headline area -->
         <div class="headline-container primary-textcol ">
             <div class="headline third-head letter-spacing-small medium">Lets Wordle
-                <object data="/rescources/svg/small-dot.svg" width="8px" height="8px"></object>
+    
             </div>
 
         </div>

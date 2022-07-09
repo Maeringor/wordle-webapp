@@ -55,16 +55,6 @@
     border-radius: 8px;
 }
 
-.input-container .input-field::after {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: inherit;
-    height: 3px;
-    background-color: gray;
-}
-
 .input-container .input-field input {
     width: inherit;
     height: inherit;
@@ -119,10 +109,23 @@ input:hover {
     font-size: 15px;
 }
 
-input:focus+input::after {
-    background-color: brown;
+.input-field .bottom-border {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: inherit;
+    height: 3px;
+    border-radius: 8px;
+    border: none;
+    background-color: gray;
+    z-index: 10;
 }
 
-input:hover+.input-field::after {
-    background-color: green;
+.input-field:hover .bottom-border {
+    background-color: rgb(20, 116, 219);
+}
+
+.input-field input:focus+.bottom-border {
+    background-color: blueviolet;
 }
