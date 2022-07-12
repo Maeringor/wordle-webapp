@@ -1,4 +1,10 @@
-
+<?php
+    session_start();
+    if (!isset($_SESSION["uid"])) {
+        header("location: ../login.php");
+        exit();
+    } 
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +23,7 @@
 <body>
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
-    <?php 
-    if (!isset($_SESSION["uid"])) {
-        header('Location: login.php');
-        exit();
-    } 
-    ?>
+    
     <section class="basic-padding">
 
         <!-- headline area -->
@@ -45,9 +46,9 @@
                         
                         <div class="input-head sub-head letter-spacing-small bold secondary-textcol">Your own word in wordle</div>
 
-                        <form class="form" action="">
+                        <form class="form" action="/php/addnewword.php" method="POST">
                             <div class="input-field">
-                                <input minlength="5" maxlength="5" autocomplete="off" class="third-head light-blue-bg" type="text" id="custom" placeholder=" ">
+                                <input minlength="5" maxlength="5" autocomplete="off" class="third-head light-blue-bg" type="text" id="custom" name="custom" placeholder=" ">
                                 <label for="custom" class="form-lable paragraph medium light-blue-bg">input word</label>
                                 <!-- info button -->
                                 <div class="info-btn-position paragraph">
@@ -61,7 +62,7 @@
                             
                             <!-- cta button -->
                             <div class="cta-btn">
-                                    <button type="button" class="main-button blue-bg paragraph letter-spacing-big secondary-textcol">Submit</button>
+                                    <button name="submitWord" type="submit" class="main-button blue-bg paragraph letter-spacing-big secondary-textcol">Submit</button>
                             </div>
                         </form>
 

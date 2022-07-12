@@ -74,10 +74,6 @@ function checkForGameEnd(numOfCorrectAlphabets, timeEnded) {
                 hiddenInput = document.querySelector('#timeFieldCU');
                 hiddenInput.value=minutes;
             }
-
-            // sends data to the server
-            let form = document.querySelector('#timeForm');
-            form.submit();
         }
 
         // popup with continue button -> transfers data to database

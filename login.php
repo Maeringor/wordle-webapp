@@ -44,7 +44,6 @@
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="pass" name="pass" placeholder=" ">
                             <label for="pass" class="form-lable small-text regular light-gray-bg">Password</label>
                             
-                            
                             <div class="bottom-border"></div>
                         </div>
                         <!-- submit btn -->
