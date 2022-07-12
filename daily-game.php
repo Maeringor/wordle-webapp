@@ -1,4 +1,10 @@
 <?php 
+session_start();
+    if (!isset($_SESSION["uid"])) {
+        header("location: ../login.php");
+        exit();
+    } ?>
+<?php 
     require_once 'php/config.php';
 
     // if db shows a user other then admin set var
@@ -7,7 +13,21 @@
     $key_for_custom_word = 0;
 
     // set rand word from database on daily basis (check for current date on Server vs on Databse)
+    $server_date = date("Y-m-d");
+    if (!equalDates($server_date, getCurrentDailyWord_Date())) {
+        $rand_word = setNewDailyWord($server_date);
+    } else {
+        $rand_word = getCurrentDailyWord_Word();
+    }
+
     $rand_word = "Shout";
+
+    function equalDates($date1, $date2) {
+        if ($date1 != $date2) {
+            return false;
+        }
+        return true;
+    }
 ?>
 
 <!DOCTYPE html>

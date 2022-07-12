@@ -24,12 +24,13 @@ function userExists($conn, $username) {
     mysqli_stmt_close($stmt);
 }
 
+/* login and register */
 function emptyInputSignup($uname, $upass, $upassRepeat) {
     return (empty($uname) || empty($upass) || empty($upassRepeat));
 }
 
 function invalidName($uname) {
-    $result;
+    $result = false;
     if (!preg_match("/^[a-zA-Z0-9]*$/", $uname)) {
         $result = true;
     } else {
@@ -63,7 +64,6 @@ function createUser($conn, $uname, $upass) {
     redirectForErrors("../index.php");
 }
 
-
 function emptyInputLogin($uname, $upass) {
     return (empty($uname) || empty($upass));
 }
@@ -96,7 +96,7 @@ function loginUser($conn, $uname, $upass) {
     }
 
 
-
+    /* sql statemants */
     function getScore($username) {
         $sql = "SELECT UScore as sc FROM ".TAB_USER." WHERE UName='$username';";
         $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
@@ -106,7 +106,7 @@ function loginUser($conn, $uname, $upass) {
     }
 
     function getPlace($username) {
-        $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore;";
+        $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore DESC;";
         $counter = 1;
 
         $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
@@ -119,6 +119,69 @@ function loginUser($conn, $uname, $upass) {
     }
     
     function addPoint($score, $username) {
-        $sql = "INSERT INTO ".TAB_USER."(UScore) VALUES (".$score.") WHERE UName=".$username.";";
-        mysqli_query($sql) or die(mysqli_error());
+        $sql = "UPDATE ".TAB_USER." SET UScore=$score WHERE UName='$username';";
+        echo $sql;
+        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+    }
+
+    function getRandomWord() {
+        $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_WORDS.";";
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $numArray = mysqli_fetch_assoc($resultNum);
+        $num = $numArray["c"];
+
+        $randNum = rand(1, $num);
+
+        $sql_get_content_words = "SELECT * FROM ".TAB_WORDS." JOIN ".TAB_USER." ON ".TAB_WORDS.".UID = ".TAB_USER.".UID WHERE WID=$randNum;";
+        $resultContent = mysqli_query(conn_globale, $sql_get_content_words) or die(mysqli_error());
+        $contentArray = mysqli_fetch_assoc($resultContent);
+
+        return $contentArray;
+    }
+
+    function getCurrentDailyWord_Date() {
+        $sql = "SELECT DW_Date as d FROM ".TAB_DWORD.";";
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+    
+        $row = mysqli_fetch_assoc($result);
+        return $row["d"];
+    }
+    function getCurrentDailyWord_Word() {
+        $sql = "SELECT DW_Word as w FROM ".TAB_DWORD.";";
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+    
+        $row = mysqli_fetch_assoc($result);
+        return $row["w"];
+    }
+
+    function setNewDailyWord($date) {
+        $contentArray = getRandomWord();
+        $word = $contentArray["Word"];
+        $sql = "UPDATE ".TAB_DWORD." SET DW_Word = $word, DW_Date = $date WHERE DWID=1;";
+        
+        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+
+        return $word;
+    }
+
+    function addSugWord($word, $uid) {
+        $sql = "INSERT INTO ".TAB_SWORDS." (UID, swWord) VALUES ($uid, '$word');";
+        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+    }
+
+    // checks if a word exists in the suggested word or word tables
+    function checkIfWordExists($word) {
+        $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_SWORDS." WHERE swWord='$word';";
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $numArray = mysqli_fetch_assoc($resultNum);
+        $num = $numArray["c"];
+        $sql_get_count_words = "SELECT COUNT(*) as c2 FROM ".TAB_WORDS." WHERE Word='$word';";
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $numArray = mysqli_fetch_assoc($resultNum);
+        $num2 = $numArray["c2"];
+
+        if ($num != 0 || $num2 != 0) {
+            return true;
+        }
+        return false;
     }

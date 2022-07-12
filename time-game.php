@@ -1,4 +1,10 @@
 <?php 
+session_start();
+        if (!isset($_SESSION["uid"])) {
+            header("location: ../login.php");
+            exit();
+        } ?>
+<?php 
     require_once 'php/config.php';
 
     // if db shows a user other then admin set var
@@ -34,11 +40,6 @@
 <body>
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
-    <?php 
-        if (!isset($_SESSION["uid"])) {
-            header("location: ../login.php");
-            exit();
-        } ?>
 
     <!-- content section -->
     <section class="basic-padding">
@@ -198,7 +199,7 @@
         setInitGameValues(<?php if (isset($_GET['word']) && strlen($_GET['word']) == 5 && isset($_GET['ck'])) {?>w<?php } else {echo "'".$rand_word."'";} ?>, true, true);
 
         window.onload = function () {
-            var minutesCD = 60 * 3,
+            var minutesCD = 60 * 15,
             display = document.querySelector('#time'),
             hiddenInput = document.querySelector('#timeFieldCD'),
             timeForm = document.querySelector('#timeForm');

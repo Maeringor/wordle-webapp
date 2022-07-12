@@ -1,4 +1,10 @@
 <?php
+session_start(); 
+    if (!isset($_SESSION["uid"])) {
+        header("location: ../login.php");
+        exit();
+    } ?>
+<?php
 include "php/processUploadImageForm.php";
 require_once "php/functions.php";
 ?>
@@ -20,11 +26,6 @@ require_once "php/functions.php";
 <body>
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
-    <?php
-        if (!isset($_SESSION["uid"])) {
-            header("location: ../login.php");
-            exit();
-        } ?>
 
     <section class="basic-padding">
 

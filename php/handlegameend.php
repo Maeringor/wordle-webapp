@@ -1,21 +1,22 @@
 <?php
 // private games should never be evaluated
-if (isset($_POST["isForFriend"]) && $_POST["isForFriend"] == 'true') {
+if (isset($_POST["isForFriend"]) && $_POST["isForFriend"] == 'true' || !isset($_SESSION["uid"])) {
     header("Location: ../gamemodis.php");
     exit();
 }
-require_once "php/functions.php";
+require_once "functions.php";
 
-$DEFAULT_POINTS = 100;
 if (isset($_POST["submitGameEnd"])) {
     $current_score = getScore($_SESSION["uname"]);
     put($current_score);
     
-    header("Location: ../gamemodis.php");
+    header("Location: ../gamemodis.php?info=saved");
     exit();
 }
 
 function put($current_score) {
+    $DEFAULT_POINTS = 100;
+
     if (isset($_POST["timeFieldCD"])) {
         // time active countdown (only minutes)
         if ($_POST["timeFieldCD"] == 0 || $_POST["timeFieldCD"] == 1) {

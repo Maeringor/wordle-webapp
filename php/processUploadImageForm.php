@@ -19,9 +19,10 @@
                 // temp save of the img for better database handling
                 if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target_file)) {
                     $user_pic = $target_file;
+                    $local_uname = $_SESSION['uname'];
     
                     // insert image link ($target_file) into database
-                    $sqlUpdate = "UPDATE ".$TAB_USER." SET UPicLink=".$target_file." WHERE UName=".$_SESSION["uname"].";";
+                    $sqlUpdate = "UPDATE ".TAB_USER." SET UPicLink='$target_file'WHERE UName='$local_uname';";
                     mysqli_query($conn, $sqlUpdate);
                 }
     
