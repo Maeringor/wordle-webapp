@@ -8,13 +8,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
  }
 
- define('conn_globale', $conn);
+define('conn_globale', $conn);
 
 // all tables
 define('TAB_USER', 'user');
-$TAB_DSCORE = "DailyScore";
-$TAB_WORDS = "Words";
-$TAB_SWORDS = "SugWords";
-$TAB_DWORD = "DailyWord";
+define('TAB_DSCORE', 'dailyscore');
+define('TAB_WORDS', 'words');
+define('TAB_SWORDS', 'sugwords');
+define('TAB_DWORD', 'dailyword');
 
 ?>
