@@ -29,7 +29,7 @@ function emptyInputSignup($uname, $upass, $upassRepeat) {
 }
 
 function invalidName($uname) {
-    $result;
+    $result = false;
     if (!preg_match("/^[a-zA-Z0-9]*$/", $uname)) {
         $result = true;
     } else {
@@ -99,17 +99,17 @@ function loginUser($conn, $uname, $upass) {
 
     function getScore($username) {
         $sql = "SELECT UScore as sc FROM ".TAB_USER." WHERE UName='$username';";
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     
         $row = mysqli_fetch_assoc($result);
         return $row["sc"];
     }
 
     function getPlace($username) {
-        $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore;";
+        $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore DESC;";
         $counter = 1;
 
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row["UName"] == $username) {
                 return $counter;
@@ -120,5 +120,5 @@ function loginUser($conn, $uname, $upass) {
     
     function addPoint($score, $username) {
         $sql = "INSERT INTO ".TAB_USER."(UScore) VALUES (".$score.") WHERE UName=".$username.";";
-        mysqli_query($sql) or die(mysqli_error());
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }

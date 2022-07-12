@@ -38,7 +38,7 @@
             </li>
 
             <li>
-                <a href="#" class="page-link blue-tetxcol small-text letter-spacing-small">
+                <a href="/leaderboard" class="page-link blue-tetxcol small-text letter-spacing-small">
 
                     <span class="mask">
                                 <div class="single-link-container">
