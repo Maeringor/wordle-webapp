@@ -39,7 +39,7 @@
 
     <!-- cta btn -->
     <div class="main-button blue-bg  main-btn-pos main-btn-shadow">
-        <a class="secondary-textcol letter-spacing-big medium paragraph" href="gamemodis.php">Start a game</a>
+        <a class="secondary-textcol letter-spacing-big medium paragraph" href="gamemodis">Start a game</a>
     </div>
     <!-- cta btn end -->
 

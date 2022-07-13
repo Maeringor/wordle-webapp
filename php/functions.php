@@ -169,6 +169,8 @@ function loginUser($conn, $uname, $upass) {
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
+    #remove sugWord function
+
     // checks if a word exists in the suggested word or word tables
     function checkIfWordExists($word) {
         $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_SWORDS." WHERE swWord='$word';";

@@ -104,8 +104,8 @@
             <!-- user information area end -->
 
             <!-- Start btn -->
-            <div class="main-button red-bg  main-btn-pos red-btn-shadow">
-                <a class="secondary-textcol letter-spacing-big medium paragraph" href="gamemodis.php">Start Daily Challenge</a>
+            <div class="daily-start-btn red-bg  main-btn-pos red-btn-shadow letter-spacing-big paragraph">
+                <a class="secondary-textcol medium" href="daily-game">Start Daily Challenge</a>
             </div>
             <!-- start btn end -->
 
