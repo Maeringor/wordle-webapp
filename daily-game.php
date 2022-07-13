@@ -6,6 +6,7 @@ session_start();
     } ?>
 <?php 
     require_once 'php/config.php';
+    require_once 'php/functions.php';
 
     // if db shows a user other then admin set var
     $entered_word_by;
@@ -19,8 +20,6 @@ session_start();
     } else {
         $rand_word = getCurrentDailyWord_Word();
     }
-
-    $rand_word = "Shout";
 
     function equalDates($date1, $date2) {
         if ($date1 != $date2) {
@@ -47,11 +46,6 @@ session_start();
 <body>
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
-    <?php 
-        if (!isset($_SESSION["uid"])) {
-            header("location: ../login.php");
-            exit();
-        } ?>
 
     <!-- content section -->
     <section class="basic-padding">

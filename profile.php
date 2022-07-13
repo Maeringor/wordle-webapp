@@ -7,6 +7,22 @@ session_start();
 <?php
 include "php/processUploadImageForm.php";
 require_once "php/functions.php";
+require_once 'php/db.conn.php';
+
+function getDailyPositions($uid) {
+    $sql = "SELECT * FROM ".TAB_DSCORE." WHERE UID= $uid ORDER BY DDATE DESC";
+    $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+
+    // get position for specific date
+    while ($row = mysqli_fetch_assoc($result)) {
+        $daily_chall_date = date("Y-m-d", strtotime($row['DDATE']));
+        echo '<div class="history-card sub-head primary-textcol medium light-blue-bg">';
+        echo    '<div class="date">Date: '.$daily_chall_date.'</div>';
+        echo    '<div class="position">Position: '.getSingleDailyPostion($uid, $daily_chall_date).'</div>';
+        echo '</div>';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,46 +112,10 @@ require_once "php/functions.php";
                 <div class="user-infos-right">
 
                     <!-- card setup for dynamic data from db -->
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 2</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 13</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="date">Date: 10.05.2022</div>
-                        <div class="position">Position: 40</div>
-                    </div>
+                    <?php 
+                        // select all from dailyscore where uid=sessionUID in assoc_array
+                        getDailyPositions($_SESSION["uid"]);
+                    ?>
 
                 </div>
                 <!-- daily history end -->
