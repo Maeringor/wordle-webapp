@@ -122,6 +122,7 @@ function loginUser($conn, $uname, $upass) {
         $sql = "UPDATE ".TAB_USER." SET UScore=$score WHERE UName='$username';";
         echo $sql;
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
     function getRandomWord() {
@@ -144,6 +145,10 @@ function loginUser($conn, $uname, $upass) {
         $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     
         $row = mysqli_fetch_assoc($result);
+        if (!isset($row["d"])) {
+            $oldDate = date("Y-m-d", strtotime("10-10-2001"));
+            return $oldDate;
+        }
         return $row["d"];
     }
     function getCurrentDailyWord_Word() {
@@ -157,7 +162,7 @@ function loginUser($conn, $uname, $upass) {
     function setNewDailyWord($date) {
         $contentArray = getRandomWord();
         $word = $contentArray["Word"];
-        $sql = "UPDATE ".TAB_DWORD." SET DW_Word = $word, DW_Date = $date WHERE DWID=1;";
+        $sql = "UPDATE ".TAB_DWORD." SET DW_Word = '$word', DW_Date = '$date' WHERE DWID=1;";
         
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
 
@@ -186,4 +191,37 @@ function loginUser($conn, $uname, $upass) {
             return true;
         }
         return false;
+    }
+
+
+    function checkIfDailyEntranceExists($uid, $date) {
+        $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_DSCORE." WHERE DDATE='$date' AND UID=$uid;";
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error(conn_globale));
+        $numArray = mysqli_fetch_assoc($resultNum);
+        $num = $numArray["c"];
+        
+        if ($num != 0) {
+            return true;
+        }
+        return false;
+    }
+
+    function addDailyScore($score, $uid) {
+        $server_date = date("Y-m-d");
+        $sql = "INSERT INTO ".TAB_DSCORE." (DDATE, UID, DScore) VALUES ('$server_date', $uid, $score);";
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+    }
+
+    function getSingleDailyPostion($uid, $date) {
+        $sql = "SELECT * FROM ".TAB_DSCORE." WHERE DDATE= $date ORDER BY DDATE DESC";
+        $counter = 1;
+
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row["UID"] == $uid) {
+                return $counter;
+            }
+            $counter += 1;
+        }
+        return $counter;
     }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // private games should never be evaluated
 if (isset($_POST["isForFriend"]) && $_POST["isForFriend"] == 'true' || !isset($_SESSION["uid"])) {
     header("Location: ../gamemodis.php");
@@ -16,6 +17,7 @@ if (isset($_POST["submitGameEnd"])) {
 
 function put($current_score) {
     $DEFAULT_POINTS = 100;
+    $server_date = date("Y-m-d");
 
     if (isset($_POST["timeFieldCD"])) {
         // time active countdown (only minutes)
@@ -25,19 +27,18 @@ function put($current_score) {
             addPoint($current_score + $DEFAULT_POINTS - round($DEFAULT_POINTS / $_POST["timeFieldCD"]), $_SESSION["uname"]);
         }
         
-    } else if (isset($_POST["timeFieldCU"])) {
-        // check for entry in daily table exists
-
+    } else if (isset($_POST["timeFieldCU"]) && !checkIfDailyEntranceExists($_SESSION["uid"], $server_date)) {
         // time active countup (daily challenge) (only minutes)
-        $finalPoints = $DEFAULT_POINTS - $_POST["timeFieldCU"];
+        $finalPoints = $DEFAULT_POINTS - (int)$_POST["timeFieldCU"];
         if ($finalPoints < 1) {
             $finalPoints = 1;
         }
         // add to daily table
+        addDailyScore($finalPoints, $_SESSION["uid"]);
 
         // add points to overall statistic
         addPoint($current_score + $finalPoints, $_SESSION["uname"]);
-    } else {
+    } else if (!isset($_POST["timeFieldCD"]) && !isset($_POST["timeFieldCU"])) {
         //default game
         addPoint($current_score + $DEFAULT_POINTS, $_SESSION["uname"]);
     }

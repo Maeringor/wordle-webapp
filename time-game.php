@@ -1,10 +1,4 @@
 <?php 
-session_start();
-        if (!isset($_SESSION["uid"])) {
-            header("location: ../login.php");
-            exit();
-        } ?>
-<?php 
     require_once 'php/config.php';
 
     // if db shows a user other then admin set var
@@ -18,8 +12,12 @@ session_start();
         $key_for_custom_word = $_GET['ck'];
         $bool_is_friend_word = true;
     } else {
+        $assoc_word_content = getRandomWord();
         // set rand word from database
-        $rand_word = "Shout";
+        $rand_word = $assoc_word_content["Word"];
+        if ($assoc_word_content["URole"] == "U") {
+            $entered_word_by = $assoc_word_content["UName"];
+        }
     }
 ?>
 

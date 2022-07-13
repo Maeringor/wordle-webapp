@@ -11,5 +11,5 @@ if (isset($_POST["submitWord"]) && isset($_POST["custom"])) {
     } else {
         header("Location: ../index.php?info=noWordSaved");
         exit();
-    }  
+    }
 }
