@@ -1,3 +1,28 @@
+<?php
+require_once 'php/db.conn.php';
+
+function createDailyLeaderboard(){
+    $server_date = date("Y-m-d");
+    $sql = "SELECT * FROM ".TAB_DSCORE. " join ".TAB_USER. " ON ".TAB_DSCORE.".UID =" .TAB_USER.".UID WHERE DDATE = '$server_date' ORDER BY DTIME;";
+
+    $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+    
+    while($row = mysqli_fetch_array($result)){
+
+        $time = $row["DTIME"];
+        $time = str_replace("00:", "", $time);
+
+        echo '<div class="history-card sub-head primary-textcol medium light-blue-bg">';
+        echo '<div class="username">Username: ' .$row["UName"] .'</div>';
+        echo '<div class="time">Time: ' .$time. '</div>';
+        echo '</div>';
+    }
+
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +41,8 @@
 
 <body>
     <!-- add header -->
-    <?php include 'html_structures/nav.html'; ?>
+
+    <?php include 'html_structures/nav.php'; ?>
 
     <section class="basic-padding">
 
@@ -57,46 +83,8 @@
                 <div class="daily-board">
 
                     <!-- card setup for dynamic data from db -->
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas</div>
-                        <div class="time">Time: 00:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Maurice</div>
-                        <div class="time">Time: 00:15:04</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas12</div>
-                        <div class="time">Time: 01:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas153</div>
-                        <div class="time">Time: 02:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas13</div>
-                        <div class="time">Time: 03:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas14</div>
-                        <div class="time">Time: 04:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas15</div>
-                        <div class="time">Time: 05:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas21</div>
-                        <div class="time">Time: 06:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas22</div>
-                        <div class="time">Time: 07:12:64</div>
-                    </div>
-                    <div class="history-card sub-head primary-textcol medium light-blue-bg">
-                        <div class="username">Username: Lukas24</div>
-                        <div class="time">Time: 08:12:64</div>
-                    </div>
+                    
+                    <?php createDailyLeaderboard(); ?>
 
                 </div>
                 <!-- daily history end -->
@@ -104,8 +92,8 @@
             <!-- user information area end -->
 
             <!-- Start btn -->
-            <div class="main-button red-bg  main-btn-pos red-btn-shadow">
-                <a class="secondary-textcol letter-spacing-big medium paragraph" href="gamemodis.php">Start Daily Challenge</a>
+            <div class="daily-start-btn red-bg  main-btn-pos red-btn-shadow letter-spacing-big paragraph">
+                <a class="secondary-textcol medium" href="daily-game">Start Daily Challenge</a>
             </div>
             <!-- start btn end -->
 
