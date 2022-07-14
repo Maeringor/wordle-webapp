@@ -10,14 +10,43 @@ function sugWordBoard()
 
 
     while ($row = mysqli_fetch_array($result)) {
+        $wordSW = $row["swWord"];
         echo '<div class="history-card sub-head primary-textcol medium light-blue-bg">';
         echo    '<div class="username">Wort: '.$row["swWord"]. '</div>';
-        echo    '<button name="accept'.$counter.'" onclick="submitSugWord('.$row["swWord"].','.$row["UID"].')" type="submit" class="sug-word-button sub-head medium green-bg">Accept</button>';
-        echo    '<button name="decline'.$counter.'" onclick="submitSugWord('.$row["swWord"].','.$row["UID"].')" type="submit" class="sug-word-button sub-head medium red-bg">Decline</button>';
+        echo    '<button type="submit" name="accept'.$counter.'" onclick="submitSugWord(\''.$wordSW.'\','.$row["UID"].')" class="sug-word-button paragraph secondary-textcol medium green-bg" style="cursor:pointer; padding: 5px;">Accept</button>';
+        echo    '<button type="submit" name="decline'.$counter.'" onclick="submitSugWord(\''.$wordSW.'\','.$row["UID"].')" class="sug-word-button paragraph secondary-textcol medium red-bg" style="cursor:pointer; padding: 5px;">Decline</button>';
         echo '</div>';
 
         $counter += 1;
     }
+
+    return $counter;
+}
+
+function countUser(){
+    $sql = "SELECT COUNT(*) FROM " .TAB_USER. ";";
+    $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+    $count = $result->fetch_column();
+
+    echo '<div class="stats">Registierte Accounts: '.$count.'</div>';
+}
+
+function countWords(){
+    $sql = "SELECT COUNT(*) FROM " .TAB_WORDS. ";";
+    $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+    $count = $result->fetch_column();
+
+    echo '<div class="stats">Anzahl der Wörter: '.$count.'</div>';
+}
+
+function countDailyGames(){
+    $date = date("Y-m-d");
+    $sql = "SELECT COUNT(*) as c FROM " .TAB_DSCORE. " WHERE DDATE='$date';";
+    $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+    $arrayRes = mysqli_fetch_assoc($result);
+    $count = $arrayRes["c"];
+
+    echo '<div class="stats">Spiele an der Daily-Challenge: '.$count.'</div>';
 }
 
 ?>
@@ -68,10 +97,11 @@ function sugWordBoard()
                     </div>
 
                     <div class="content-stats paragraph letter-spacing-small">
-                        <div class="stats">Registierte Accounts: 1243</div>
-                        <div class="stats">Anzahl der Wörter: 72673</div>
-                        <div class="stats">Spiele an der Daily-Challenge: 23</div>
-
+                    <?php 
+                    countUser();
+                    countWords();
+                    countDailyGames();
+                    ?>
                     </div>
 
                 </div>
@@ -82,28 +112,18 @@ function sugWordBoard()
                 <div class="sug-words-board">
                     <form id="sugWordForm" class="form" action="/php/sugWord.php" method="POST">
                         <!-- card setup for dynamic data from db -->
-
-                        
-
-                        <?php sugWordBoard(); ?>
-
                         <input id="idSwWord" name="idSwWord" type="text" hidden>
                         <input id="swWord" name="swWord" type="text" hidden>
-                        <input id="countWords" name="countWords" type="number" value="<?php echo $counter ?>" hidden>
-                        
+
+                        <?php $c = sugWordBoard(); ?>
+                        <input id="countWords" name="countWords" type="number" value=<?php echo '"'.$c.'"' ?> hidden>
 
                     </form>
 
                 </div>
-
-                
-
                 <!-- sug words end -->
             </div>
             <!-- admin information area end -->
-
-
-
         </div>
         <!-- content area end -->
 
@@ -115,7 +135,6 @@ function sugWordBoard()
             document.querySelector('#idSwWord').value=uid;
 
             document.querySelector('#sugWordForm').submit();
-
         }
     </script>
 

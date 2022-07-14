@@ -227,14 +227,13 @@ function loginUser($conn, $uname, $upass) {
     }
 
     function addWord($word, $uid){
-        $sql = "INSERT INTO ".TAB_WORDS." (UID, Word) VALUES ($uid, $word);";
+        $sql = "INSERT INTO ".TAB_WORDS." (UID, Word) VALUES ($uid, '$word');";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
 
         removeSugWord($word);
-
     }
 
     function removeSugWord($word){
-        $sql = "DELETE FROM ".TAB_SWORDS." WHERE swWord = $word;";
+        $sql = "DELETE FROM ".TAB_SWORDS." WHERE swWord = '$word';";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }

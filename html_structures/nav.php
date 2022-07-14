@@ -15,7 +15,7 @@
                 <ul class="basic-links-container">
 
                     <?php
-                   if ($_SESSION["urole"] == 'A') {
+                   if (isset($_SESSION["urole"]) && $_SESSION["urole"] == 'A') {
                         echo '<li>';
                         echo '<a href="/adminpage" class="page-link red-tetxcol small-text letter-spacing-small">';
 
