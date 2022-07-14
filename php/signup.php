@@ -20,12 +20,12 @@ if (isset($_POST["submit"])) {
         header("location: ../register.php?error=NoPWMatch");
         exit();
     }
-    if (userExists($conn, $uname) !== false) {
+    if (userExists(conn_globale, $uname) !== false) {
         header("location: ../register.php?error=UserExists");
         exit();
     }
 
-    createUser($conn, $uname, $upass);
+    createUser(conn_globale, $uname, $upass);
     
 } else {
     header("location: ../register.php");

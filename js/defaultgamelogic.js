@@ -72,7 +72,10 @@ function checkForGameEnd(numOfCorrectAlphabets, timeEnded) {
                 hiddenInput.value=minutes;
             } else {
                 hiddenInput = document.querySelector('#timeFieldCU');
-                hiddenInput.value=minutes;
+                hiddenInput2 = document.querySelector('#timeFieldCUSeconds');
+                hiddenInput.value=minutesUp;
+                hiddenInput2.value=secondsUp;
+                console.log(hiddenInput2.value);
             }
         }
 
@@ -224,24 +227,26 @@ function startTimerCD(durationInSeconds, display, hiddenInputForMinutes) {
 
 var cuInterval;
 var minutesUp;
+var secondsUp;
 
-function startTimerCU(maxDurationInSeconds, display, hiddenInputForMinutes) {
-    var timer = 0, seconds;
+function startTimerCU(maxDurationInSeconds, display, hiddenInputForMinutes, hiddenInputForSeconds) {
+    var timer = 0;
 
     cuInterval = setInterval(function () {
-        minutesUp = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
+        minutesUp = parseInt(timer / 60, 10);
+        secondsUp = parseInt(timer % 60, 10);
 
         minutesUp = minutesUp < 10 ? "0" + minutesUp : minutesUp;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        secondsUp = secondsUp < 10 ? "0" + secondsUp : secondsUp;
 
-        display.textContent = minutesUp + ":" + seconds;
+        display.textContent = minutesUp + ":" + secondsUp;
 
-        if (++timer > maxDurationInSeconds) {
+        if (++timer > maxDurationInSeconds + 1) {
             alert('Time is up! Come again tomorrow.');
             hiddenInputForMinutes.value=minutesUp;
+            hiddenInputForSeconds.value=minutesUp;
             clearInterval(cuInterval);
-            checkForGameEnd(0, true);
+            checkForGameEnd(5, true);
         }
     }, 1000);
 

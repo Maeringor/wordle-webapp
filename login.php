@@ -23,7 +23,6 @@
             </div>
 
         </div>
-
         <!-- headline area end -->
 
         <!-- login field -->
@@ -38,6 +37,7 @@
                             <input autocomplete="off" class="small-text light-gray-bg" type="text" id="user" name="user" placeholder=" ">
                             <label for="user" class="form-lable small-text regular light-gray-bg">Username</label>
                             <div class="bottom-border"></div>
+                            
                         </div>
 
                         <div class="input-field">
@@ -53,6 +53,10 @@
                         <!-- submit btn end -->
 
                     </form>
+                    
+                    <div class="register-link-container small-text medium">
+                        <a href="/register.php">You want an account?</a>
+                    </div>
 
                 </div>
 
@@ -62,13 +66,8 @@
 
 
         </div>
-
-
         <!-- login field end -->
-
-        <!-- content sectione end -->
     </section>
-
+    <!-- content sectione end -->
 </body>
-
 </html>

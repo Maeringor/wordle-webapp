@@ -206,14 +206,14 @@ function loginUser($conn, $uname, $upass) {
         return false;
     }
 
-    function addDailyScore($score, $uid) {
+    function addDailyScore($score, $uid, $time) {
         $server_date = date("Y-m-d");
-        $sql = "INSERT INTO ".TAB_DSCORE." (DDATE, UID, DScore) VALUES ('$server_date', $uid, $score);";
+        $sql = "INSERT INTO ".TAB_DSCORE." (DDATE, UID, DScore, DTIME) VALUES ('$server_date', $uid, $score, '$time');";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
     function getSingleDailyPostion($uid, $date) {
-        $sql = "SELECT * FROM ".TAB_DSCORE." WHERE DDATE= $date ORDER BY DDATE DESC";
+        $sql = "SELECT * FROM ".TAB_DSCORE." WHERE DDATE='$date' ORDER BY DScore DESC";
         $counter = 1;
 
         $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
@@ -227,14 +227,13 @@ function loginUser($conn, $uname, $upass) {
     }
 
     function addWord($word, $uid){
-        $sql = "INSERT INTO ".TAB_WORDS." (UID, Word) VALUES ($uid, $word);";
+        $sql = "INSERT INTO ".TAB_WORDS." (UID, Word) VALUES ($uid, '$word');";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
 
         removeSugWord($word);
-
     }
 
     function removeSugWord($word){
-        $sql = "DELETE FROM ".TAB_SWORDS." WHERE swWord = $word;";
+        $sql = "DELETE FROM ".TAB_SWORDS." WHERE swWord = '$word';";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }

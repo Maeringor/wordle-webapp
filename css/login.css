@@ -90,13 +90,18 @@
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    transition: top 400ms ease-in, font-size 400ms ease-in;
+    transition: left 300ms ease-in, top 300ms ease-in, font-size 300ms ease-in;
+    cursor: text;
 }
 
 textarea:focus,
 input:focus,
 input:hover {
     outline: none;
+}
+
+.register-link-container{
+    margin-top: 30px;
 }
 
 
@@ -106,7 +111,8 @@ input:hover {
 .quadrat-bg .input-container .form .input-field input:focus+.form-lable,
 .quadrat-bg .input-container .form .input-field input:not(:placeholder-shown)+.form-lable {
     top: -15px;
-    font-size: 15px;
+    left: 10px;
+    font-size: 13px;
 }
 
 .input-field .bottom-border {
@@ -120,12 +126,13 @@ input:hover {
     border: none;
     background-color: gray;
     z-index: 10;
+    transition: .4s;
 }
 
 .input-field:hover .bottom-border {
     background-color: rgb(20, 116, 219);
 }
 
-.input-field input:focus+.bottom-border {
-    background-color: blueviolet;
+.input-field input:focus~.bottom-border {
+    background-color: rgb(43, 95, 226);
 }
