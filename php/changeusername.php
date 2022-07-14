@@ -15,7 +15,7 @@ if (isset($_POST["changeButton"]) && !empty($_POST["username"]) && $_POST["usern
     // insert new name into database
     $sqlUpdate = "UPDATE ".TAB_USER." SET UName='$new_name' WHERE UID='$sess_id_local';";
 
-    if (mysqli_query($conn, $sqlUpdate)) {
+    if (mysqli_query(conn_globale, $sqlUpdate)) {
         $_SESSION["uname"] = $_POST["username"];
     }
 

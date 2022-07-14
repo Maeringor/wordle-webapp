@@ -170,6 +170,7 @@ session_start();
                 <form action="/php/handlegameend.php" method="POST" id="timeForm">
                     <!-- inputs for the data from the game to write in the database -->
                     <input id="timeFieldCU" name="timeFieldCU" type="number" hidden>
+                    <input id="timeFieldCUSeconds" name="timeFieldCUSeconds" type="number" hidden>
 
                     <div class="sub-head green-bg primary-textcol bold letter-spacing-small" style="margin-bottom: 2vh; border-radius: 8px;">
                         You won!
@@ -202,11 +203,12 @@ session_start();
         setInitGameValues(<?php echo "'".$rand_word."'"; ?>, true, false);
 
         window.onload = function () {
-            var maxMinutesCU = 60 * 1,
+            var maxMinutesCU = 60 * 50,
             display = document.querySelector('#time'),
             hiddenInput = document.querySelector('#timeFieldCU'),
+            hiddenInput2 = document.querySelector('#timeFieldCUSeconds'),
             timeForm = document.querySelector('#timeForm');
-            startTimerCU(maxMinutesCU, display, hiddenInput);
+            startTimerCU(maxMinutesCU, display, hiddenInput, hiddenInput2);
         };
     </script>
 

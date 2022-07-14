@@ -99,7 +99,7 @@ function loginUser($conn, $uname, $upass) {
     /* sql statemants */
     function getScore($username) {
         $sql = "SELECT UScore as sc FROM ".TAB_USER." WHERE UName='$username';";
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     
         $row = mysqli_fetch_assoc($result);
         return $row["sc"];
@@ -109,7 +109,7 @@ function loginUser($conn, $uname, $upass) {
         $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore DESC;";
         $counter = 1;
 
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row["UName"] == $username) {
                 return $counter;
@@ -125,14 +125,14 @@ function loginUser($conn, $uname, $upass) {
 
     function getRandomWord() {
         $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_WORDS.";";
-        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error(conn_globale));
         $numArray = mysqli_fetch_assoc($resultNum);
         $num = $numArray["c"];
 
         $randNum = rand(1, $num);
 
         $sql_get_content_words = "SELECT * FROM ".TAB_WORDS." JOIN ".TAB_USER." ON ".TAB_WORDS.".UID = ".TAB_USER.".UID WHERE WID=$randNum;";
-        $resultContent = mysqli_query(conn_globale, $sql_get_content_words) or die(mysqli_error());
+        $resultContent = mysqli_query(conn_globale, $sql_get_content_words) or die(mysqli_error(conn_globale));
         $contentArray = mysqli_fetch_assoc($resultContent);
 
         return $contentArray;
@@ -140,7 +140,7 @@ function loginUser($conn, $uname, $upass) {
 
     function getCurrentDailyWord_Date() {
         $sql = "SELECT DW_Date as d FROM ".TAB_DWORD.";";
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     
         $row = mysqli_fetch_assoc($result);
         if (!isset($row["d"])) {
@@ -151,7 +151,7 @@ function loginUser($conn, $uname, $upass) {
     }
     function getCurrentDailyWord_Word() {
         $sql = "SELECT DW_Word as w FROM ".TAB_DWORD.";";
-        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     
         $row = mysqli_fetch_assoc($result);
         return $row["w"];
@@ -162,24 +162,24 @@ function loginUser($conn, $uname, $upass) {
         $word = $contentArray["Word"];
         $sql = "UPDATE ".TAB_DWORD." SET DW_Word = '$word', DW_Date = '$date' WHERE DWID=1;";
         
-        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
 
         return $word;
     }
 
     function addSugWord($word, $uid) {
         $sql = "INSERT INTO ".TAB_SWORDS." (UID, swWord) VALUES ($uid, '$word');";
-        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
     // checks if a word exists in the suggested word or word tables
     function checkIfWordExists($word) {
         $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_SWORDS." WHERE swWord='$word';";
-        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error(conn_globale));
         $numArray = mysqli_fetch_assoc($resultNum);
         $num = $numArray["c"];
         $sql_get_count_words = "SELECT COUNT(*) as c2 FROM ".TAB_WORDS." WHERE Word='$word';";
-        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error());
+        $resultNum = mysqli_query(conn_globale, $sql_get_count_words) or die(mysqli_error(conn_globale));
         $numArray = mysqli_fetch_assoc($resultNum);
         $num2 = $numArray["c2"];
 
@@ -202,14 +202,14 @@ function loginUser($conn, $uname, $upass) {
         return false;
     }
 
-    function addDailyScore($score, $uid) {
+    function addDailyScore($score, $uid, $time) {
         $server_date = date("Y-m-d");
-        $sql = "INSERT INTO ".TAB_DSCORE." (DDATE, UID, DScore) VALUES ('$server_date', $uid, $score);";
+        $sql = "INSERT INTO ".TAB_DSCORE." (DDATE, UID, DScore, DTIME) VALUES ('$server_date', $uid, $score, '$time');";
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
     function getSingleDailyPostion($uid, $date) {
-        $sql = "SELECT * FROM ".TAB_DSCORE." WHERE DDATE= $date ORDER BY DDATE DESC";
+        $sql = "SELECT * FROM ".TAB_DSCORE." WHERE DDATE='$date' ORDER BY DScore DESC";
         $counter = 1;
 
         $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));

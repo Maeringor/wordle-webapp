@@ -20,10 +20,15 @@
                 if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target_file)) {
                     $user_pic = $target_file;
                     $local_uname = $_SESSION['uname'];
+                    $userExists = userExists(conn_globale, $_SESSION["uname"]);
+
+                    if (strcmp($userExists["UPicLink"], "/rescources/svg/basic-profile-pic.svg") !== 0) {
+                        unlink($userExists["UPicLink"]);
+                    }
     
                     // insert image link ($target_file) into database
-                    $sqlUpdate = "UPDATE ".TAB_USER." SET UPicLink='$target_file'WHERE UName='$local_uname';";
-                    mysqli_query($conn, $sqlUpdate);
+                    $sqlUpdate = "UPDATE ".TAB_USER." SET UPicLink='$target_file' WHERE UName='$local_uname';";
+                    mysqli_query(conn_globale, $sqlUpdate);
                 }
     
                 // redirect to this page for the form to be closed
@@ -31,7 +36,7 @@
     
             }else{
                 // check if profile pic is set in database
-                $userExists = userExists($conn, $_SESSION["uname"]);
+                $userExists = userExists(conn_globale, $_SESSION["uname"]);
 
                 if (empty($userExists["UPicLink"])) {
                     // if no profile pic in database use default pic

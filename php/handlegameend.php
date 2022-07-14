@@ -34,7 +34,8 @@ function put($current_score) {
             $finalPoints = 1;
         }
         // add to daily table
-        addDailyScore($finalPoints, $_SESSION["uid"]);
+        $time = "00:".$_POST["timeFieldCU"].":".$_POST["timeFieldCUSeconds"];
+        addDailyScore($finalPoints, $_SESSION["uid"], $time);
 
         // add points to overall statistic
         addPoint($current_score + $finalPoints, $_SESSION["uname"]);
