@@ -1,12 +1,7 @@
 <?php 
 require_once "php/functions.php";
 require_once 'php/db.conn.php';
-
-
-if (session_status() != PHP_SESSION_ACTIVE) {
-    session_start();
-} 
-
+ 
 function createLeaderboard(){
     $sql = "SELECT * FROM ".TAB_USER." ORDER BY UScore DESC;";
 
@@ -18,9 +13,9 @@ function createLeaderboard(){
         while($row = mysqli_fetch_array($result)){
 
             echo '<div class="history-card sub-head primary-textcol medium light-blue-bg">';
-            echo '<div class="">' .$ranking. '.</div>';
-            echo '<div class="">' .$row["UName"]. '</div>';
-            echo '<div class="">' .$row["UScore"]. '</div>';
+            echo '<div>' .$ranking. '.</div>';
+            echo '<div>' .$row["UName"]. '</div>';
+            echo '<div>' .$row["UScore"]. '</div>';
             echo '</div>';
 
             $ranking+=1;
