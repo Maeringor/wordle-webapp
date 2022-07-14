@@ -120,7 +120,9 @@ function loginUser($conn, $uname, $upass) {
     
     function addPoint($score, $username) {
         $sql = "UPDATE ".TAB_USER." SET UScore=$score WHERE UName='$username';";
-        mysqli_query(conn_globale, $sql) or die(mysqli_error());
+        echo $sql;
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
     function getRandomWord() {
@@ -172,6 +174,8 @@ function loginUser($conn, $uname, $upass) {
         mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
 
+    #remove sugWord function
+
     // checks if a word exists in the suggested word or word tables
     function checkIfWordExists($word) {
         $sql_get_count_words = "SELECT COUNT(*) as c FROM ".TAB_SWORDS." WHERE swWord='$word';";
@@ -220,4 +224,17 @@ function loginUser($conn, $uname, $upass) {
             $counter += 1;
         }
         return $counter;
+    }
+
+    function addWord($word, $uid){
+        $sql = "INSERT INTO ".TAB_WORDS." (UID, Word) VALUES ($uid, $word);";
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
+
+        removeSugWord($word);
+
+    }
+
+    function removeSugWord($word){
+        $sql = "DELETE FROM ".TAB_SWORDS." WHERE swWord = $word;";
+        mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     }
