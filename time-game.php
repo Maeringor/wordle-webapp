@@ -1,5 +1,6 @@
 <?php 
     require_once 'php/config.php';
+    require_once 'php/functions.php';
 
     // if db shows a user other then admin set var
     $entered_word_by;

@@ -1,7 +1,7 @@
 <?php
 require_once 'php/db.conn.php';
 
-function createDailyLeaderboard(){
+function createDailyLeaderboard() {
     $server_date = date("Y-m-d");
     $sql = "SELECT * FROM ".TAB_DSCORE. " join ".TAB_USER. " ON ".TAB_DSCORE.".UID =" .TAB_USER.".UID WHERE DDATE = '$server_date' ORDER BY DTIME;";
 
@@ -10,15 +10,14 @@ function createDailyLeaderboard(){
     while($row = mysqli_fetch_array($result)){
 
         $time = $row["DTIME"];
-        $time = str_replace("00:", "", $time);
+        //$time = str_replace("00:", "", $time);
+        $time = preg_replace('/' .'00:'.'/', "", $time, 1);
 
         echo '<div class="history-card sub-head primary-textcol medium light-blue-bg">';
         echo '<div class="username">Username: ' .$row["UName"] .'</div>';
         echo '<div class="time">Time: ' .$time. '</div>';
         echo '</div>';
     }
-
-
 }
 
 ?>
@@ -58,8 +57,6 @@ function createDailyLeaderboard(){
 
             </div>
 
-
-
             <!-- daily challenge -->
             <div class="content-container-daily">
 
@@ -73,7 +70,6 @@ function createDailyLeaderboard(){
                         Our Daily Challenge allows You to guess a new word every day. <br>You have unlimited time and an infinite number of attempts.
                         <br>The faster You are, the higher you will be on the daily leaderboard <br>and You can compete with others every day.
                         <br><br>Good Luck!
-
                     </div>
 
                 </div>
@@ -81,11 +77,8 @@ function createDailyLeaderboard(){
                 <!-- daily history -->
                 <!-- dynamic data -->
                 <div class="daily-board">
-
                     <!-- card setup for dynamic data from db -->
-                    
                     <?php createDailyLeaderboard(); ?>
-
                 </div>
                 <!-- daily history end -->
             </div>
@@ -102,5 +95,4 @@ function createDailyLeaderboard(){
 
     </section>
 </body>
-
 </html>

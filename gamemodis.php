@@ -10,15 +10,13 @@
     <link rel='stylesheet' type='text/css' media='screen' href='/css/design.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/nav.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='/css/elements.css'>
+    
     <link rel='stylesheet' type='text/css' media='screen' href='/css/gamemodis.css'>
-
 </head>
 
 <body>
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
-
-    <!-- content section -->
 
     <!-- headline area -->
     <div class="headline-container primary-textcol master-head letter-spacing-small medium">
@@ -28,14 +26,13 @@
         </div>
 
     </div>
-
     <!-- headline area end -->
 
     <!-- modis btn -->
     <div class="grid-container">
         <div class="wrapper1">
             <div class="one">
-                <div class="gamemodis-btn red-bg  main-btn-pos red-btn-shadow letter-spacing-big  paragraph">
+                <div class="gamemodis-btn red-bg  main-btn-pos red-btn-shadow letter-spacing-big paragraph">
                     <a class="secondary-textcol  medium" href="daily-start">Daily Challenge</a>
                 </div>
             </div>
@@ -63,9 +60,5 @@
         </div>
     </div>
     <!-- modis btn end -->
-
-    <!-- content sectione end -->
-
 </body>
-
 </html>

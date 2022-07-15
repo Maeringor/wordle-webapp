@@ -14,7 +14,6 @@
                 
                 // unique file name
                 $target_file = "rescources/uploads/". time(). "_" . basename($_FILES["profilePic"]["name"]);
-                echo "<script>console.log('File received:". $target_file ."' );</script>";
     
                 // temp save of the img for better database handling
                 if (move_uploaded_file($_FILES['profilePic']['tmp_name'], $target_file)) {
@@ -34,7 +33,7 @@
                 // redirect to this page for the form to be closed
                 redirect($_SERVER['PHP_SELF']);
     
-            }else{
+            }else {
                 // check if profile pic is set in database
                 $userExists = userExists(conn_globale, $_SESSION["uname"]);
 
@@ -46,9 +45,7 @@
                 }
     
             }
-        
-    
-            
+                 
     function deleteLocalImage($filename) {
         if(file_exists($filename)) {
             unlink($filename);
