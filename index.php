@@ -17,8 +17,6 @@
     <!-- add header -->
     <?php include 'html_structures/nav.php'; ?>
 
-    <!-- content section -->
-
     <!-- headline area -->
     <div class="headline-container primary-textcol specail-head">
         <div class="headline"> Let's <span class="red-textcol">play</span></div>
@@ -34,7 +32,6 @@
         
     </div>
 
-
     <!-- headline area end -->
 
     <!-- cta btn -->
@@ -43,8 +40,5 @@
     </div>
     <!-- cta btn end -->
 
-    <!-- content sectione end -->
-
 </body>
-
 </html>

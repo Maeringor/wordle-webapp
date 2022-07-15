@@ -73,6 +73,5 @@
          <!-- content area end -->
 
     </section>
-
 </body>
 </html>

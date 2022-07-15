@@ -9,7 +9,7 @@ if (!isset($_SESSION["uid"])) {
     exit();
 }
 
-if (isset($_POST["deleteButton"])) {
+if (isset($_POST["deleteButton"]) && $_SESSION["urole"] != "A") {
     $sqlDelete = "DELETE FROM ".TAB_USER." WHERE UID=".$_SESSION["uid"].";";
 
     $userExists = userExists(conn_globale, $_SESSION["uname"]);

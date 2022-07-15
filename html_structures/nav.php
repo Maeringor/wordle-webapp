@@ -6,7 +6,7 @@
     <div class="header-cotnainer">
         <div class="logo primary-textcol medium">
             <a href="/" style="text-decoration: none;">
-                W<span class="special-logo blue-tetxcol regular">o</span>rl<span class="special-logo blue-tetxcol">d</span>e
+                W<span class="special-logo blue-tetxcol regular">o</span>rd<span class="special-logo blue-tetxcol">l</span>e
             </a>
         </div>
 
