@@ -11,15 +11,12 @@ $DB_PASSWORD = "";
 $DB_NAME = "wordle";
 
 if (session_status() === PHP_SESSION_NONE) {
-   /* !!!! IMPORTANT: !!!!
-   TEST ONLY - Session should start if user is loged in */
    session_start();
-   if(!isset($_SESSION["CEASAR_KEY"])){
+   if(!isset($_SESSION["CEASAR_KEY"])) {
       $_SESSION["CEASAR_KEY"] = rand(1, 25);
    }
 }
 
- 
 // Web Connection
 $WEB_PROTOCOL = 'http';
 // url as name (www.example.com) or as ip (127.0.0.1)

@@ -5,7 +5,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Worlde</title>
+    <title>Wordle</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Globeles Stylesheet -->
     <link rel='stylesheet' type='text/css' media='screen' href='/css/design.css'>

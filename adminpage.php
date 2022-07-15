@@ -1,13 +1,17 @@
 <?php
+session_start();
+if (!isset($_SESSION["urole"]) && $_SESSION["urole"] != 'A') {
+    header("Location: ../index.php?info=noPermission");
+    exit();
+}
+
 require_once "php/functions.php";
 require_once 'php/db.conn.php';
 
-function sugWordBoard()
-{
+function sugWordBoard() {
     $sql = "SELECT * FROM " . TAB_SWORDS . " ORDER BY SWID;";
     $counter = 1;
     $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
-
 
     while ($row = mysqli_fetch_array($result)) {
         $wordSW = $row["swWord"];
@@ -23,7 +27,7 @@ function sugWordBoard()
     return $counter;
 }
 
-function countUser(){
+function countUser() {
     $sql = "SELECT COUNT(*) FROM " .TAB_USER. ";";
     $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     $count = $result->fetch_column();
@@ -31,7 +35,7 @@ function countUser(){
     echo '<div class="stats">Registierte Accounts: '.$count.'</div>';
 }
 
-function countWords(){
+function countWords() {
     $sql = "SELECT COUNT(*) FROM " .TAB_WORDS. ";";
     $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
     $count = $result->fetch_column();
@@ -39,7 +43,7 @@ function countWords(){
     echo '<div class="stats">Anzahl der Wörter: '.$count.'</div>';
 }
 
-function countDailyGames(){
+function countDailyGames() {
     $date = date("Y-m-d");
     $sql = "SELECT COUNT(*) as c FROM " .TAB_DSCORE. " WHERE DDATE='$date';";
     $result = mysqli_query(conn_globale, $sql) or die(mysqli_error(conn_globale));
@@ -86,7 +90,6 @@ function countDailyGames(){
 
             </div>
 
-
             <!-- area admin -->
             <div class="content-container-admin">
 
@@ -105,7 +108,6 @@ function countDailyGames(){
                     </div>
 
                 </div>
-
                 <!-- sug words -->
 
                 <!-- dynamic data -->
@@ -119,14 +121,12 @@ function countDailyGames(){
                         <input id="countWords" name="countWords" type="number" value=<?php echo '"'.$c.'"' ?> hidden>
 
                     </form>
-
                 </div>
                 <!-- sug words end -->
             </div>
             <!-- admin information area end -->
         </div>
         <!-- content area end -->
-
     </section>
 
     <script> 
@@ -139,5 +139,4 @@ function countDailyGames(){
     </script>
 
 </body>
-
 </html>
